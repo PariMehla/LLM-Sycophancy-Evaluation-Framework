@@ -153,7 +153,12 @@ class _AnthropicProvider:
             raise RuntimeError(f"Model '{name}' requires env var {api_key_env}, which is not set.")
         import anthropic
         self.model_id = model_id
-        self._client = anthropic.Anthropic(api_key=api_key)
+        # An identity-linked (personal) API key -- as opposed to one scoped
+        # to a specific Workspace in the Console -- requires this header on
+        # every request, naming which workspace the request acts in.
+        workspace_id = os.environ.get("ANTHROPIC_WORKSPACE_ID")
+        default_headers = {"anthropic-workspace-id": workspace_id} if workspace_id else None
+        self._client = anthropic.Anthropic(api_key=api_key, default_headers=default_headers)
         self._anthropic = anthropic
 
     def call(self, messages, temperature, seed, max_tokens):
