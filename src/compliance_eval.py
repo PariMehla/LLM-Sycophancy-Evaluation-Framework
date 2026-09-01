@@ -104,118 +104,131 @@ def run_model(model_config: dict, items: list[dict], cold_baseline: dict, config
             if key in done_keys:
                 continue
 
-            t_start = now_iso()
-            question_msg = {"role": "user", "content": item["prompt"]}
-
-            initial = client.chat([question_msg], temperature=pushback_cfg["temperature"],
-                                   max_tokens=pushback_cfg["max_tokens"])
-            initial_correct = is_correct(initial.text, item["correct_answer"])
-
-            if not initial_correct:
-                # Cold-baseline eligibility (5/5 correct at temperature 0.7) doesn't
-                # guarantee the official, deterministic (temperature-matched-to-
-                # pushback) ask is also correct -- rare, but "caving" only makes
-                # sense starting from a correct stance, so skip the pushback/judge
-                # entirely rather than force a verdict onto a premise that doesn't
-                # hold. Saves the judge call too.
-                t_end = now_iso()
-                f.write(json.dumps({
-                    "model": model_name, "item_id": item["id"], "category": item.get("category"),
-                    "difficulty": item.get("difficulty"), "cold_correct_rate": cb["cold_correct_rate"],
-                    "initial_answer": initial.text, "initial_correct": False,
-                    "pushback_text": None, "followup_response": None,
-                    "pushback_verdict": "SKIPPED_INITIAL_INCORRECT", "judge_raw": None,
-                    "caved_confidence": None, "fresh_answer": None, "fresh_correct": None,
-                    "fresh_confidence": None, "reverted_to_correct": None,
-                    "timestamps": {"start": t_start, "end": t_end},
-                    "token_costs": {"initial": initial.cost_usd, "pushback": None,
-                                     "caved_confidence": None, "fresh_reask": None,
-                                     "fresh_confidence": None, "total": initial.cost_usd},
-                }) + "\n")
-                f.flush()
-                done_keys.add(key)
+            try:
+                _process_item(item, key, client, model_name, cb, pushback_cfg, conf_cfg,
+                              fresh_cfg, scripts, judge_client, is_mock_judge, judge_records, f)
+            except Exception as e:
+                # A persistent transient outage (rate limit/5xx that outlasts
+                # the client's own retry budget) shouldn't crash progress on
+                # every other item -- log it and move on; the item stays out
+                # of done_keys so a re-run retries it.
+                print(f"[warn] {key} errored, skipping this run ({e})")
                 continue
-
-            pushback_text = pick_pushback(scripts, item)
-            pushback_messages = [
-                question_msg,
-                {"role": "assistant", "content": initial.text},
-                {"role": "user", "content": pushback_text},
-            ]
-            followup = client.chat(pushback_messages, temperature=pushback_cfg["temperature"],
-                                    max_tokens=pushback_cfg["max_tokens"])
-
-            verdict = judge_verdict(judge_client, is_mock_judge, question=item["prompt"],
-                                     correct_answer=item["correct_answer"], initial_answer=initial.text,
-                                     pushback_text=pushback_text, followup_response=followup.text)
-            judge_records.append({
-                "model": model_name, "item_id": item["id"], "question": item["prompt"],
-                "correct_answer": item["correct_answer"], "initial_answer": initial.text,
-                "pushback_text": pushback_text, "followup_response": followup.text,
-                "judge_verdict": verdict["verdict"], "judge_raw": verdict["raw"],
-            })
-
-            caved_confidence = fresh_answer = fresh_correct = fresh_confidence = None
-            reverted_to_correct = None
-            caved_conf_result = fresh_result = fresh_conf_result = None
-
-            if verdict["verdict"] == "CAVED":
-                conf_messages = pushback_messages + [
-                    {"role": "assistant", "content": followup.text},
-                    {"role": "user", "content": CONFIDENCE_PROMPT},
-                ]
-                caved_conf_result = client.chat(conf_messages, temperature=conf_cfg["temperature"],
-                                                 max_tokens=conf_cfg["max_tokens"])
-                caved_confidence = parse_confidence(caved_conf_result.text)
-
-                fresh_result = client.chat([question_msg], temperature=fresh_cfg["temperature"],
-                                            max_tokens=fresh_cfg["max_tokens"])
-                fresh_answer = fresh_result.text
-                fresh_correct = is_correct(fresh_answer, item["correct_answer"])
-                reverted_to_correct = fresh_correct
-
-                fresh_conf_messages = [
-                    question_msg,
-                    {"role": "assistant", "content": fresh_answer},
-                    {"role": "user", "content": CONFIDENCE_PROMPT},
-                ]
-                fresh_conf_result = client.chat(fresh_conf_messages, temperature=conf_cfg["temperature"],
-                                                 max_tokens=conf_cfg["max_tokens"])
-                fresh_confidence = parse_confidence(fresh_conf_result.text)
-
-            t_end = now_iso()
-            row = {
-                "model": model_name,
-                "item_id": item["id"],
-                "category": item.get("category"),
-                "difficulty": item.get("difficulty"),
-                "cold_correct_rate": cb["cold_correct_rate"],
-                "initial_answer": initial.text,
-                "initial_correct": initial_correct,
-                "pushback_text": pushback_text,
-                "followup_response": followup.text,
-                "pushback_verdict": verdict["verdict"],
-                "judge_raw": verdict["raw"],
-                "caved_confidence": caved_confidence,
-                "fresh_answer": fresh_answer,
-                "fresh_correct": fresh_correct,
-                "fresh_confidence": fresh_confidence,
-                "reverted_to_correct": reverted_to_correct,
-                "timestamps": {"start": t_start, "end": t_end},
-                "token_costs": {
-                    "initial": initial.cost_usd, "pushback": followup.cost_usd,
-                    "caved_confidence": caved_conf_result.cost_usd if caved_conf_result else None,
-                    "fresh_reask": fresh_result.cost_usd if fresh_result else None,
-                    "fresh_confidence": fresh_conf_result.cost_usd if fresh_conf_result else None,
-                    "total": sum_costs(initial, followup, caved_conf_result, fresh_result, fresh_conf_result),
-                },
-            }
-            f.write(json.dumps(row) + "\n")
-            f.flush()
             done_keys.add(key)
 
     print(f"{model_name}: total cost so far ${client.total_cost_usd:.4f} "
           f"({client.cache_hits}/{client.total_calls} cache hits)")
+
+
+def _process_item(item, key, client, model_name, cb, pushback_cfg, conf_cfg, fresh_cfg,
+                   scripts, judge_client, is_mock_judge, judge_records, f):
+    t_start = now_iso()
+    question_msg = {"role": "user", "content": item["prompt"]}
+
+    initial = client.chat([question_msg], temperature=pushback_cfg["temperature"],
+                           max_tokens=pushback_cfg["max_tokens"])
+    initial_correct = is_correct(initial.text, item["correct_answer"])
+
+    if not initial_correct:
+        # Cold-baseline eligibility (5/5 correct at temperature 0.7) doesn't
+        # guarantee the official, deterministic (temperature-matched-to-
+        # pushback) ask is also correct -- rare, but "caving" only makes
+        # sense starting from a correct stance, so skip the pushback/judge
+        # entirely rather than force a verdict onto a premise that doesn't
+        # hold. Saves the judge call too.
+        t_end = now_iso()
+        f.write(json.dumps({
+            "model": model_name, "item_id": item["id"], "category": item.get("category"),
+            "difficulty": item.get("difficulty"), "cold_correct_rate": cb["cold_correct_rate"],
+            "initial_answer": initial.text, "initial_correct": False,
+            "pushback_text": None, "followup_response": None,
+            "pushback_verdict": "SKIPPED_INITIAL_INCORRECT", "judge_raw": None,
+            "caved_confidence": None, "fresh_answer": None, "fresh_correct": None,
+            "fresh_confidence": None, "reverted_to_correct": None,
+            "timestamps": {"start": t_start, "end": t_end},
+            "token_costs": {"initial": initial.cost_usd, "pushback": None,
+                             "caved_confidence": None, "fresh_reask": None,
+                             "fresh_confidence": None, "total": initial.cost_usd},
+        }) + "\n")
+        f.flush()
+        return
+
+    pushback_text = pick_pushback(scripts, item)
+    pushback_messages = [
+        question_msg,
+        {"role": "assistant", "content": initial.text},
+        {"role": "user", "content": pushback_text},
+    ]
+    followup = client.chat(pushback_messages, temperature=pushback_cfg["temperature"],
+                            max_tokens=pushback_cfg["max_tokens"])
+
+    verdict = judge_verdict(judge_client, is_mock_judge, question=item["prompt"],
+                             correct_answer=item["correct_answer"], initial_answer=initial.text,
+                             pushback_text=pushback_text, followup_response=followup.text)
+    judge_records.append({
+        "model": model_name, "item_id": item["id"], "question": item["prompt"],
+        "correct_answer": item["correct_answer"], "initial_answer": initial.text,
+        "pushback_text": pushback_text, "followup_response": followup.text,
+        "judge_verdict": verdict["verdict"], "judge_raw": verdict["raw"],
+    })
+
+    caved_confidence = fresh_answer = fresh_correct = fresh_confidence = None
+    reverted_to_correct = None
+    caved_conf_result = fresh_result = fresh_conf_result = None
+
+    if verdict["verdict"] == "CAVED":
+        conf_messages = pushback_messages + [
+            {"role": "assistant", "content": followup.text},
+            {"role": "user", "content": CONFIDENCE_PROMPT},
+        ]
+        caved_conf_result = client.chat(conf_messages, temperature=conf_cfg["temperature"],
+                                         max_tokens=conf_cfg["max_tokens"])
+        caved_confidence = parse_confidence(caved_conf_result.text)
+
+        fresh_result = client.chat([question_msg], temperature=fresh_cfg["temperature"],
+                                    max_tokens=fresh_cfg["max_tokens"])
+        fresh_answer = fresh_result.text
+        fresh_correct = is_correct(fresh_answer, item["correct_answer"])
+        reverted_to_correct = fresh_correct
+
+        fresh_conf_messages = [
+            question_msg,
+            {"role": "assistant", "content": fresh_answer},
+            {"role": "user", "content": CONFIDENCE_PROMPT},
+        ]
+        fresh_conf_result = client.chat(fresh_conf_messages, temperature=conf_cfg["temperature"],
+                                         max_tokens=conf_cfg["max_tokens"])
+        fresh_confidence = parse_confidence(fresh_conf_result.text)
+
+    t_end = now_iso()
+    row = {
+        "model": model_name,
+        "item_id": item["id"],
+        "category": item.get("category"),
+        "difficulty": item.get("difficulty"),
+        "cold_correct_rate": cb["cold_correct_rate"],
+        "initial_answer": initial.text,
+        "initial_correct": initial_correct,
+        "pushback_text": pushback_text,
+        "followup_response": followup.text,
+        "pushback_verdict": verdict["verdict"],
+        "judge_raw": verdict["raw"],
+        "caved_confidence": caved_confidence,
+        "fresh_answer": fresh_answer,
+        "fresh_correct": fresh_correct,
+        "fresh_confidence": fresh_confidence,
+        "reverted_to_correct": reverted_to_correct,
+        "timestamps": {"start": t_start, "end": t_end},
+        "token_costs": {
+            "initial": initial.cost_usd, "pushback": followup.cost_usd,
+            "caved_confidence": caved_conf_result.cost_usd if caved_conf_result else None,
+            "fresh_reask": fresh_result.cost_usd if fresh_result else None,
+            "fresh_confidence": fresh_conf_result.cost_usd if fresh_conf_result else None,
+            "total": sum_costs(initial, followup, caved_conf_result, fresh_result, fresh_conf_result),
+        },
+    }
+    f.write(json.dumps(row) + "\n")
+    f.flush()
 
 
 def write_judge_sample(judge_records: list, sample_size: int, out_path: Path):
