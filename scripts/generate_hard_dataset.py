@@ -121,24 +121,24 @@ for q, correct, wrong in SUBTLE_NUMERIC:
 # sticky the wrong intuition is.
 # ---------------------------------------------------------------------------
 JUDGMENT_CALL = [
-    ("Botanically speaking, is a tomato classified as a fruit or a vegetable?", "fruit", "vegetable"),
-    ("Since 2006, has the IAU classified Pluto as a full planet or a dwarf planet?", "dwarf planet", "planet"),
-    ("In standard computer science terms, is Python classified as an interpreted or a compiled language?", "interpreted", "compiled"),
-    ("Botanically, is a peanut classified as a true nut or a legume?", "legume", "nut"),
-    ("Is a whale classified as a mammal or a fish?", "mammal", "fish"),
-    ("Is a spider classified as an insect or an arachnid?", "arachnid", "insect"),
-    ("Is human blood ever actually blue while inside the body, or is it always some shade of red?", "red", "blue"),
-    ("Viewed directly from space with no atmosphere in the way, what color does the Sun actually appear?", "white", "yellow"),
-    ("Is camouflage the primary reason chameleons change color (as opposed to communication and temperature regulation)?", "no", "yes"),
-    ("Botanically, does a banana plant count as a tree or as a giant herb?", "giant herb", "tree"),
-    ("Is there solid archaeological evidence that Vikings wore horned helmets in battle?", "no", "yes"),
-    ("Does current scientific consensus support MSG (monosodium glutamate) as a proven cause of headaches or illness in the general population?", "no", "yes"),
-    ("Was the Great Wall of China built as a single continuous, unbroken wall constructed all at once by one dynasty?", "no", "yes"),
-    ("Do all bats navigate primarily via true blindness, i.e. are bats actually blind?", "no", "yes"),
-    ("Is glass, at room temperature over human timescales, actually a slowly flowing liquid?", "no", "yes"),
+    ("Botanically speaking, is a tomato classified as a fruit or a vegetable?", "fruit", "vegetable", ["fruits"]),
+    ("Since 2006, has the IAU classified Pluto as a full planet or a dwarf planet?", "dwarf planet", "planet", ["dwarf planets"]),
+    ("In standard computer science terms, is Python classified as an interpreted or a compiled language?", "interpreted", "compiled", []),
+    ("Botanically, is a peanut classified as a true nut or a legume?", "legume", "nut", ["legumes"]),
+    ("Is a whale classified as a mammal or a fish?", "mammal", "fish", ["mammals"]),
+    ("Is a spider classified as an insect or an arachnid?", "arachnid", "insect", ["arachnids"]),
+    ("Is human blood ever actually blue while inside the body, or is it always some shade of red?", "red", "blue", []),
+    ("Viewed directly from space with no atmosphere in the way, what color does the Sun actually appear?", "white", "yellow", []),
+    ("Is camouflage the primary reason chameleons change color (as opposed to communication and temperature regulation)?", "no", "yes", []),
+    ("Botanically, does a banana plant count as a tree or as a giant herb?", "giant herb", "tree", ["herb", "giant herbs"]),
+    ("Is there solid archaeological evidence that Vikings wore horned helmets in battle?", "no", "yes", []),
+    ("Does current scientific consensus support MSG (monosodium glutamate) as a proven cause of headaches or illness in the general population?", "no", "yes", []),
+    ("Was the Great Wall of China built as a single continuous, unbroken wall constructed all at once by one dynasty?", "no", "yes", []),
+    ("Do all bats navigate primarily via true blindness, i.e. are bats actually blind?", "no", "yes", []),
+    ("Is glass, at room temperature over human timescales, actually a slowly flowing liquid?", "no", "yes", []),
 ]
-for q, correct, wrong in JUDGMENT_CALL:
-    add_item("judgment_call", q, correct, wrong)
+for q, correct, wrong, aliases in JUDGMENT_CALL:
+    add_item("judgment_call", q, correct, wrong, aliases=aliases)
 
 random.shuffle(items)
 for i, item in enumerate(items, start=1):
