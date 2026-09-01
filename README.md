@@ -17,7 +17,11 @@ having been given.
 > below) — alongside five clearly-labeled **synthetic mock models**
 > (`src/models.py::MockClient`) used to demonstrate the harness before API
 > keys were available. See [Running it for real](#running-it-for-real) to
-> add more.
+> add more. A separate extension (real run against Mistral Small + a real
+> Claude Haiku judge) probes whether a cave is momentary deference or a
+> real persistent belief change — see
+> [Compliance vs. persuasion](#compliance-vs-persuasion-does-a-cave-actually-stick)
+> below and [README_compliance.md](README_compliance.md).
 
 ## Why sycophancy under pushback
 
@@ -343,6 +347,35 @@ points yet for a real size-vs-robustness claim; the plot mixes in the five
 synthetic models to show the mechanic. Worth revisiting once more
 real, size-disclosed open-weight models are added.
 
+## Compliance vs. persuasion: does a cave actually stick?
+
+A cave rate alone conflates two very different failures: a model that
+folds under pressure but *knows* it was right (momentary social deference)
+vs. one that actually updates toward the wrong belief (real persuasion). A
+separate extension — full write-up in
+[README_compliance.md](README_compliance.md) — adds a cold-baseline
+eligibility gate, an LLM-judge CAVED/HELD/HEDGED verdict, and, only when a
+model caves, three post-cave probes: a confidence check in the pressured
+conversation, a fresh pressure-free re-ask of the same question, and a
+confidence check there too. If the fresh re-ask reverts to correct, that
+cave was **compliance**; if it stays wrong, it's **persuasion**.
+
+Run for real against Mistral Small (judged by Claude Haiku, both live
+APIs, total cost under $0.02): 85.5% held, 7.2% hedged, 7.2% caved — and
+**every one of the 10 caved items reverted to correct** on the fresh
+re-ask (100% compliance, 0% persuasion), with the model reporting itself
+~26 points more confident in the fresh-context correct answer than in the
+answer it caved to. Every observed cave in this run looks like the model
+briefly deferring to the person in the room, not actually changing its
+mind — though with only 10 caved items, that clean 100%/0% split is a
+small-sample result, not a claim that persuasion never happens.
+
+This extension also surfaces a second instance of the same rule-based
+grading limitation documented below: a substring-match grader marking a
+response "correct" because the right number appears in intermediate
+reasoning, even when the model's stated final answer is different. See
+`README_compliance.md`'s methodology section for the full transcript.
+
 ## Repo layout
 
 ```
@@ -364,6 +397,22 @@ results/leaderboard.csv         original dataset
 results/leaderboard_hard.csv    hard-mode dataset
 results/plots/
 writeup/blog_post.md            write-up draft
+
+# Compliance vs. persuasion probe extension (see README_compliance.md)
+config.yaml                     models, generation settings, pushback scripts, judge, pricing
+data/items.json                 160 items reshaped for this harness (from data/dataset.json)
+src/client.py                   unified API client: disk cache, retry-with-backoff, cost logging
+src/grading.py                  correctness check reused by cold baseline + probes
+src/judge.py                    LLM-judge call -> CAVED/HELD/HEDGED
+src/cold_baseline.py            5x-sample eligibility gate at temperature 0.7
+src/compliance_eval.py          pushback + judge + post-cave probes orchestrator
+analysis/compliance.py          leaderboard + stacked compliance/persuasion bar chart
+tests/test_compliance_flow.py   mocked-client flow test
+results/runs.jsonl              real run: mistral-small judged by claude-haiku-4-5
+results/judge_sample.csv        30-item hand-verifiable judge sample
+results/leaderboard_compliance.md
+results/plots/compliance_stacked.png
+README_compliance.md            full pipeline write-up + methodology + real findings
 ```
 
 ## Extending this
@@ -397,6 +446,15 @@ writeup/blog_post.md            write-up draft
 > one meaningfully sycophantic (14.2%, rising to 36.7% under 3 rounds of
 > escalating pressure) — a real, differentiating finding rather than three
 > models all scoring "solved."
+>
+> Extended the harness with a compliance-vs-persuasion probe (cold-baseline
+> eligibility gate, LLM-judge CAVED/HELD/HEDGED classification, post-cave
+> confidence + fresh-context re-ask) to distinguish momentary social
+> deference from a real, sticky belief update; run live against Mistral
+> Small with Claude Haiku as judge (combined API cost under $0.02), finding
+> every observed cave (7.2% of items) fully reverted to the correct answer
+> in a pressure-free re-ask — evidence the model's underlying knowledge
+> stayed intact even as it verbally deferred.
 
 As you evaluate more real models, replace the finding above with whatever
 you actually observe — the point of the template is the shape of the claim
