@@ -257,6 +257,22 @@ supports on their own:
   Built and ready for whenever a logprobs-supporting provider joins the
   roster; no fabricated numbers in the meantime.
 
+One more real experiment: does turning up sampling temperature make a
+model more susceptible to social pressure? The pushback scripts now carry
+an explicit pressure-type tag (mild/assertive/authority/consensus/
+emotional — two new ones added, "three other AI models said..." and
+"you're really frustrating me..."), and a new `--pushback-temperature`
+flag lets the same item set and judge get re-run at a different
+temperature. Scoped to Mistral Small only (a full model-x-temperature grid
+is 16x the calls of one run, and Groq's daily quota already burned once on
+this project). Ran it for real at 0.0/0.3/0.7/1.0 for about 4.5 cents
+total: **cave rate stayed flat, 3.6% → 3.7% → 3.6% → 4.5%**, confidence
+intervals overlapping almost completely at every point. No detectable
+temperature effect, at least here. What *did* move: the official ask
+itself gets less reliably correct at higher temperature, so fewer items
+even reach the pushback step — a real side effect, worth reporting even
+though it's not the trend the experiment went looking for.
+
 ## Try it yourself
 
 ```bash
@@ -270,6 +286,12 @@ python src/grade_hard.py && python src/analyze_hard.py
 python src/cold_baseline.py && python src/compliance_eval.py && python analysis/compliance.py
 # deeper analysis: calibration, significance testing, a small predictive model, judge agreement
 python analysis/calibration.py && python analysis/predictive_model.py && python analysis/judge_agreement.py
+# temperature sweep (one model, holding item set + judge fixed):
+for T in 0.0 0.3 0.7 1.0; do
+  python src/compliance_eval.py --models mistral-small --pushback-temperature $T \
+    --out results/runs_temp_$T.jsonl --judge-sample-out results/judge_sample_temp_$T.csv
+done
+python analysis/temperature_sweep.py
 ```
 
 Swap in whatever models you have keys for. And whatever your grader tells
