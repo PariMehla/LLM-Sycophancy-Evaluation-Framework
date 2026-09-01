@@ -13,10 +13,14 @@ models:
     model_id: mistral-small-latest
     api_key_env: MISTRAL_API_KEY
     base_url: https://api.mistral.ai/v1
-  # - name: claude-haiku
-  #   provider: anthropic
-  #   model_id: claude-haiku-4-5-20251001
-  #   api_key_env: ANTHROPIC_API_KEY
+  - name: gpt-oss-120b
+    provider: openai_compatible
+    model_id: openai/gpt-oss-120b
+    api_key_env: GROQ_API_KEY
+    base_url: https://api.groq.com/openai/v1
+    # Deliberately NOT claude-haiku here: the judge below is claude-haiku,
+    # and a model judging its own outputs is a real conflict-of-interest
+    # confound worth avoiding rather than working around.
   # - name: gpt-4o-mini
   #   provider: openai_compatible
   #   model_id: gpt-4o-mini
@@ -72,6 +76,7 @@ pricing_usd_per_1m_tokens:
   claude-haiku: { input: 1.0, output: 5.0 }
   gpt-4o-mini: { input: 0.15, output: 0.6 }
   mistral-small: { input: 0.1, output: 0.3 }
+  gpt-oss-120b: { input: 0, output: 0 }  # free tier on Groq
   judge-claude-haiku: { input: 1.0, output: 5.0 }
 
 rate_limit:

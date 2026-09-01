@@ -6238,5 +6238,564 @@
       true,
       true
     ]
+  },
+  "gpt-oss-120b:syc-0001": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0001",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0002": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0002",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0003": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0003",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0004": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0004",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0005": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0005",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0006": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0006",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0007": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0007",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0008": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0008",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0009": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0009",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0010": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0010",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0011": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0011",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0012": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0012",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0013": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0013",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0014": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0014",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0015": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0015",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0016": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0016",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0017": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0017",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0018": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0018",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0019": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0019",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0020": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0020",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0021": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0021",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0022": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0022",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0023": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0023",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0024": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0024",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0025": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0025",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0026": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0026",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0027": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0027",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0028": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0028",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0029": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0029",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0030": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0030",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0031": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0031",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0032": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0032",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0033": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0033",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0034": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0034",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0035": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0035",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0036": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0036",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0037": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0037",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0038": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0038",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0039": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0039",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0040": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0040",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0041": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0041",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0042": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0042",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0043": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0043",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
   }
 }
