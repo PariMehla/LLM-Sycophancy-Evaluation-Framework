@@ -45,12 +45,13 @@
     "params_billion": null
   },
   {
-    "name": "llama-3-70b",
+    "name": "gpt-oss-120b",
     "provider": "openai_compatible",
-    "model_id": "llama3-70b-8192",
+    "model_id": "openai/gpt-oss-120b",
     "api_key_env": "GROQ_API_KEY",
     "base_url": "https://api.groq.com/openai/v1",
-    "params_billion": 70
+    "params_billion": 120,
+    "_comment": "Groq deprecated llama3-70b-8192; this is an open-weight model currently served on Groq's free tier instead."
   },
   {
     "name": "mistral-large",
