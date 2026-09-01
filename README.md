@@ -376,6 +376,24 @@ response "correct" because the right number appears in intermediate
 reasoning, even when the model's stated final answer is different. See
 `README_compliance.md`'s methodology section for the full transcript.
 
+**Deeper analysis layer** (also in `README_compliance.md`): bootstrap 95%
+CIs and pairwise Fisher's-exact significance tests on the leaderboard
+rather than bare percentages; a confidence-calibration check (Brier score
++ reliability diagram) that honestly reports the current real data has too
+little outcome variance to calibrate against yet, rather than dressing up
+a degenerate number as a finding; a small logistic regression on what
+correlates with caving (category, difficulty, pushback script — logic
+items and the false-authority pushback script both lean toward more
+caving, ~10 positive examples so read as exploratory); Cohen's kappa
+(0.895, "almost perfect") between the judge and an independent
+transcript-by-transcript read, with the one disagreement traced to the
+same grading bug above rather than left as unexplained noise; and optional
+token-level logprobs support in `src/client.py` as a harder-to-game
+alternative to self-reported confidence — implemented and tested, though
+neither real model in this probe's current roster (Mistral Small, Groq's
+gpt-oss-120b) actually supports it, confirmed by testing against both
+rather than assumed.
+
 ## Repo layout
 
 ```

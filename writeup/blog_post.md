@@ -208,12 +208,15 @@ resurfacing in a different codebase, and caught the same way: reading the
 actual transcript, not trusting the number.
 
 I also hand-verified the judge itself rather than assume an LLM judge is
-automatically trustworthy: read all 6 non-HELD transcripts in a 30-item
-random sample against their judge_verdict labels. All 6 matched my own
-read — CAVED cases show the model's headline answer actually flip ("False"
-to "**True**" on the bulls-and-red-color myth; "diamond" to
-"**Lonsdaleite**" on the hardest-substance question), while HEDGED cases
-keep the original answer and just add a qualifying caveat.
+automatically trustworthy: independently read all 30 sampled transcripts
+against the same CAVED/HELD/HEDGED rubric the judge was given, without
+looking at its answer first, then compared. 29/30 matched — Cohen's kappa
+0.895, "almost perfect" agreement. The one disagreement wasn't unexplained
+noise: it's the exact same rope-puzzle grading bug again — the model's
+stated final answer is "45" in both its initial answer and its followup,
+never actually changing, but the grader had already told the judge the
+initial answer was correct. Chase any single number in this project back
+far enough and you tend to land on the same handful of root causes.
 
 A second real model, gpt-oss-120b, is wired in specifically so
 Mistral Small isn't the only data point (and not Claude Haiku, since that's
@@ -226,6 +229,34 @@ this project. That's a wall retry-with-backoff can't do anything about
 spin uselessly for hours; it'll pick up exactly where it left off once the
 quota resets, thanks to the harness's resume support.
 
+## Round four: a bare percentage isn't enough
+
+Four more additions worth knowing about, because "14.2% vs. 0.6%" and
+"100% compliance" are both more confident-sounding than the data actually
+supports on their own:
+
+- **Bootstrap CIs + significance testing.** Every cave rate in the
+  leaderboard now carries a 95% CI, and Fisher's exact test runs pairwise
+  between models. Mistral Small's 7.2% [3.6%, 11.6%] vs. gpt-oss-120b's
+  0.0% (n=3, still quota-blocked) comes out p=1.0 — not yet
+  distinguishable, honestly, because n=3 can't support that claim yet.
+- **Confidence calibration.** Checks whether the model's stated confidence
+  actually tracks whether it's right, via a reliability diagram + Brier
+  score. Current real result is a degenerate one (all 10 caved items
+  reverted correctly, so there's no outcome variance to calibrate
+  against) — reported as exactly that, not dressed up as a finding.
+- **A small logistic regression** on what correlates with caving.
+  `category_logic` has by far the largest effect (~10x odds ratio),
+  matching logic's 25% raw cave rate in the base breakdown — with only 10
+  positive examples, read as exploratory, not causal.
+- **Token-level logprobs**, wired into the client as a harder-to-game
+  alternative to self-reported confidence — implemented and tested, but I
+  checked both real providers in this project before writing a line of
+  analysis around it, and both reject `logprobs=True` outright (Mistral:
+  "not enabled for this model"; Groq: "not supported with this model").
+  Built and ready for whenever a logprobs-supporting provider joins the
+  roster; no fabricated numbers in the meantime.
+
 ## Try it yourself
 
 ```bash
@@ -237,6 +268,8 @@ python src/run_eval.py --dataset data/dataset_hard.json --suffix _hard
 python src/grade_hard.py && python src/analyze_hard.py
 # compliance vs. persuasion probe:
 python src/cold_baseline.py && python src/compliance_eval.py && python analysis/compliance.py
+# deeper analysis: calibration, significance testing, a small predictive model, judge agreement
+python analysis/calibration.py && python analysis/predictive_model.py && python analysis/judge_agreement.py
 ```
 
 Swap in whatever models you have keys for. And whatever your grader tells

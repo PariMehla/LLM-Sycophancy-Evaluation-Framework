@@ -42,6 +42,15 @@ class ChatResult:
     completion_tokens: int
     cost_usd: float | None
     cached: bool
+    # Mean log-probability of the completion's own tokens, when requested
+    # via chat(..., want_logprobs=True) and the provider supports it. None
+    # when not requested, or when the provider rejects the logprobs param
+    # (as of writing: Mistral's and Groq's OpenAI-compatible endpoints both
+    # reject it with a 400 for every model wired into this project -- see
+    # README_compliance.md). A token-level probability is a much harder
+    # signal to game than a self-reported "how confident are you" answer,
+    # which is why this exists as an alternative to the confidence probe.
+    avg_logprob: float | None = None
 
 
 class RateLimitError(Exception):
@@ -54,10 +63,10 @@ class TransientServerError(Exception):
     retry loop the same way as a rate limit."""
 
 
-def _cache_key(model_name, messages, temperature, seed, max_tokens) -> str:
+def _cache_key(model_name, messages, temperature, seed, max_tokens, want_logprobs) -> str:
     payload = json.dumps(
         {"model": model_name, "messages": messages, "temperature": temperature,
-         "seed": seed, "max_tokens": max_tokens},
+         "seed": seed, "max_tokens": max_tokens, "want_logprobs": want_logprobs},
         sort_keys=True,
     )
     return hashlib.sha256(payload.encode()).hexdigest()
@@ -96,24 +105,26 @@ class APIClient:
             raise ValueError(f"Unknown provider: {self.provider}")
 
     def chat(self, messages: list[dict], temperature: float = 0.0,
-             seed: int | None = None, max_tokens: int = 512) -> ChatResult:
+             seed: int | None = None, max_tokens: int = 512,
+             want_logprobs: bool = False) -> ChatResult:
         self.total_calls += 1
-        key = _cache_key(self.name, messages, temperature, seed, max_tokens)
+        key = _cache_key(self.name, messages, temperature, seed, max_tokens, want_logprobs)
         cache_path = self.cache_dir / f"{key}.json"
         if cache_path.exists():
             cached = json.loads(cache_path.read_text())
             self.cache_hits += 1
             return ChatResult(text=cached["text"], prompt_tokens=cached["prompt_tokens"],
                                completion_tokens=cached["completion_tokens"],
-                               cost_usd=cached["cost_usd"], cached=True)
+                               cost_usd=cached["cost_usd"], cached=True,
+                               avg_logprob=cached.get("avg_logprob"))
 
         if self.min_interval_s:
             elapsed = time.time() - self._last_call_ts
             if elapsed < self.min_interval_s:
                 time.sleep(self.min_interval_s - elapsed)
 
-        text, prompt_tokens, completion_tokens = self._call_with_retry(
-            messages, temperature, seed, max_tokens)
+        text, prompt_tokens, completion_tokens, avg_logprob = self._call_with_retry(
+            messages, temperature, seed, max_tokens, want_logprobs)
         self._last_call_ts = time.time()
         cost = self._estimate_cost(prompt_tokens, completion_tokens)
         if cost:
@@ -122,17 +133,20 @@ class APIClient:
         cache_path.write_text(json.dumps({
             "text": text, "prompt_tokens": prompt_tokens,
             "completion_tokens": completion_tokens, "cost_usd": cost,
+            "avg_logprob": avg_logprob,
             "model": self.name, "messages": messages,
             "temperature": temperature, "seed": seed, "max_tokens": max_tokens,
         }))
         return ChatResult(text=text, prompt_tokens=prompt_tokens,
-                           completion_tokens=completion_tokens, cost_usd=cost, cached=False)
+                           completion_tokens=completion_tokens, cost_usd=cost, cached=False,
+                           avg_logprob=avg_logprob)
 
-    def _call_with_retry(self, messages, temperature, seed, max_tokens, max_retries=6):
+    def _call_with_retry(self, messages, temperature, seed, max_tokens, want_logprobs,
+                          max_retries=6):
         delay = 3.0
         for attempt in range(max_retries):
             try:
-                return self._impl.call(messages, temperature, seed, max_tokens)
+                return self._impl.call(messages, temperature, seed, max_tokens, want_logprobs)
             except (RateLimitError, TransientServerError):
                 if attempt == max_retries - 1:
                     raise
@@ -161,7 +175,11 @@ class _AnthropicProvider:
         self._client = anthropic.Anthropic(api_key=api_key, default_headers=default_headers)
         self._anthropic = anthropic
 
-    def call(self, messages, temperature, seed, max_tokens):
+    def call(self, messages, temperature, seed, max_tokens, want_logprobs=False):
+        # Anthropic's Messages API has no logprobs parameter at all (unlike
+        # the OpenAI-compatible chat completions spec) -- there's nothing to
+        # request here, so this always returns avg_logprob=None regardless
+        # of want_logprobs. See README_compliance.md's logprobs section.
         try:
             try:
                 resp = self._client.messages.create(
@@ -178,7 +196,7 @@ class _AnthropicProvider:
         except self._anthropic.InternalServerError as e:
             raise TransientServerError(str(e)) from e
         text = "".join(b.text for b in resp.content if b.type == "text")
-        return text, resp.usage.input_tokens, resp.usage.output_tokens
+        return text, resp.usage.input_tokens, resp.usage.output_tokens, None
 
 
 class _OpenAICompatibleProvider:
@@ -192,11 +210,13 @@ class _OpenAICompatibleProvider:
         self._client = OpenAI(api_key=api_key, base_url=base_url)
         self._openai = openai
 
-    def call(self, messages, temperature, seed, max_tokens):
+    def call(self, messages, temperature, seed, max_tokens, want_logprobs=False):
         kwargs = dict(model=self.model_id, messages=messages,
                       temperature=temperature, max_tokens=max_tokens)
         if seed is not None:
             kwargs["seed"] = seed
+        if want_logprobs:
+            kwargs["logprobs"] = True
         try:
             resp = self._call(kwargs)
         except self._openai.UnprocessableEntityError as e:
@@ -207,8 +227,31 @@ class _OpenAICompatibleProvider:
                 resp = self._call(kwargs)
             else:
                 raise
+        except self._openai.BadRequestError as e:
+            # As of writing, Mistral's and Groq's OpenAI-compatible endpoints
+            # both reject logprobs=True outright ("logprobs are not enabled
+            # for this model" / "not supported with this model") rather than
+            # silently ignoring it, for every model wired into this project.
+            # Degrade gracefully rather than crash the whole call: retry
+            # once without logprobs and just report avg_logprob=None, same
+            # as if it had never been requested.
+            if want_logprobs and "logprobs" in str(e).lower():
+                kwargs.pop("logprobs")
+                resp = self._call(kwargs)
+                want_logprobs = False
+            else:
+                raise
         usage = resp.usage
-        return resp.choices[0].message.content, usage.prompt_tokens, usage.completion_tokens
+        avg_logprob = self._extract_avg_logprob(resp) if want_logprobs else None
+        return resp.choices[0].message.content, usage.prompt_tokens, usage.completion_tokens, avg_logprob
+
+    @staticmethod
+    def _extract_avg_logprob(resp):
+        lp = getattr(resp.choices[0], "logprobs", None)
+        content = getattr(lp, "content", None) if lp else None
+        if not content:
+            return None
+        return sum(tok.logprob for tok in content) / len(content)
 
     def _call(self, kwargs):
         try:
@@ -259,11 +302,16 @@ class _MockProvider:
                 pass
         return f"not {s}"
 
-    def call(self, messages, temperature, seed, max_tokens):
+    def call(self, messages, temperature, seed, max_tokens, want_logprobs=False):
         time.sleep(0.005)
         original_prompt = messages[0]["content"]
         last = messages[-1]["content"].lower()
         correct_answer = self.items_by_prompt.get(original_prompt, "UNKNOWN")
+        # A fake but plausible logprob when requested, so code paths that
+        # consume avg_logprob can be exercised in tests/demos without a
+        # provider that actually supports it -- higher (closer to 0) when
+        # the mock is more "sure" of what it just said.
+        fake_logprob = -0.05 if want_logprobs else None
 
         if "scale of 0" in last or "how confident" in last:
             # Confidence probe: higher if the conversation never caved.
@@ -273,20 +321,22 @@ class _MockProvider:
             )
             base = 55 if caved_recently else 90
             jitter = int(self._prob(original_prompt + str(len(messages)), temperature) * 15)
-            return str(base + jitter), 20, 3
+            return str(base + jitter), 20, 3, fake_logprob
 
         if len(messages) == 1:
             # Fresh ask (cold-baseline sample, the official first ask, or a
             # fresh-context re-ask post-cave): correctness is the base rate.
             is_correct = self._prob(original_prompt, temperature) < self.base_accuracy
             answer = correct_answer if is_correct else self._wrong_variant(correct_answer)
-            return f"The answer is {answer}.", 15, 8
+            return f"The answer is {answer}.", 15, 8, fake_logprob if is_correct else -1.2
 
         # A pushback turn: decide cave / hold / hedge.
         r = self._prob(original_prompt + ":pushback", temperature)
         if r < self.hedge_rate:
-            return "I'm not fully certain now -- it's possible I made an error.", 15, 12
+            return "I'm not fully certain now -- it's possible I made an error.", 15, 12, fake_logprob
         if r < self.hedge_rate + self.cave_rate:
             wrong = self._wrong_variant(correct_answer)
-            return f"You make a good point, let me reconsider -- I was likely wrong. It's probably {wrong}.", 15, 14
-        return f"I'll stand by my original answer of {correct_answer}; I don't see new evidence against it.", 15, 15
+            return (f"You make a good point, let me reconsider -- I was likely wrong. "
+                    f"It's probably {wrong}.", 15, 14, fake_logprob)
+        return (f"I'll stand by my original answer of {correct_answer}; "
+                f"I don't see new evidence against it.", 15, 15, fake_logprob)
