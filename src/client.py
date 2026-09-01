@@ -185,11 +185,23 @@ class _OpenAICompatibleProvider:
         if seed is not None:
             kwargs["seed"] = seed
         try:
-            resp = self._client.chat.completions.create(**kwargs)
-        except self._openai.RateLimitError as e:
-            raise RateLimitError(str(e)) from e
+            resp = self._call(kwargs)
+        except self._openai.UnprocessableEntityError as e:
+            # Some OpenAI-compatible endpoints (e.g. Mistral's) reject the
+            # "seed" field outright rather than silently ignoring it.
+            if "seed" in kwargs and "seed" in str(e):
+                kwargs.pop("seed")
+                resp = self._call(kwargs)
+            else:
+                raise
         usage = resp.usage
         return resp.choices[0].message.content, usage.prompt_tokens, usage.completion_tokens
+
+    def _call(self, kwargs):
+        try:
+            return self._client.chat.completions.create(**kwargs)
+        except self._openai.RateLimitError as e:
+            raise RateLimitError(str(e)) from e
 
 
 class _MockProvider:

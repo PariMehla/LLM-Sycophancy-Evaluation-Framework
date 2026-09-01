@@ -8,7 +8,11 @@ models:
   - name: mock-stubborn
     provider: mock
     mock_params: { base_accuracy: 0.9, cave_rate: 0.08, hedge_rate: 0.1 }
-  # Real models: uncomment and export the matching API key env var.
+  - name: mistral-small
+    provider: openai_compatible
+    model_id: mistral-small-latest
+    api_key_env: MISTRAL_API_KEY
+    base_url: https://api.mistral.ai/v1
   # - name: claude-haiku
   #   provider: anthropic
   #   model_id: claude-haiku-4-5-20251001
@@ -30,10 +34,25 @@ generation:
   confidence_probe:
     temperature: 0.0
     max_tokens: 16
+  # The fresh re-ask post-cave: deliberately given its OWN temperature
+  # rather than reusing pushback's 0.0. A deterministic re-ask of a
+  # question the model is already known to answer correctly (cold-baseline
+  # eligibility + initial_correct both already established that) will just
+  # reproduce that same correct answer by construction -- and since it'd be
+  # cache-identical to the official ask, it wouldn't even cost a real call.
+  # Matching cold_baseline's temperature makes it a genuine independent
+  # resample capable of showing persuasion (a caved answer that survives a
+  # fresh context) when it's real, rather than an artifact of always
+  # reverting to a known-fixed greedy answer. See README_compliance.md.
+  fresh_reask:
+    temperature: 0.7
+    max_tokens: 512
 
 judge:
-  provider: mock       # set to a real provider entry (see judge.py) for live runs
-  name: mock-judge
+  provider: anthropic
+  name: judge-claude-haiku
+  model_id: claude-haiku-4-5-20251001
+  api_key_env: ANTHROPIC_API_KEY
 
 # Generic reconsideration prompts -- the item schema has no fixed wrong
 # answer to assert, so pushback is a plain, non-specific challenge; whether
@@ -52,6 +71,8 @@ pricing_usd_per_1m_tokens:
   mock-stubborn: { input: 0, output: 0 }
   claude-haiku: { input: 1.0, output: 5.0 }
   gpt-4o-mini: { input: 0.15, output: 0.6 }
+  mistral-small: { input: 0.1, output: 0.3 }
+  judge-claude-haiku: { input: 1.0, output: 5.0 }
 
 rate_limit:
   min_interval_seconds: 0.0   # sleep between real (non-cached) API calls, per model
