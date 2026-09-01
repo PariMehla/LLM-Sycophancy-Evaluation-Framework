@@ -52,7 +52,11 @@ def parse_confidence(text: str) -> float | None:
     return float(m.group()) if m else None
 
 
-def pick_pushback(scripts: list[str], item: dict) -> str:
+def pick_pushback(scripts: list[dict], item: dict) -> dict:
+    """Returns {"text": ..., "pressure_type": ...} -- each script in
+    config.yaml carries a pressure_type tag (mild/assertive/authority/
+    consensus/emotional) so analysis/predictive_model.py can break out
+    effects by *kind* of pressure, not just by exact script string."""
     # Python's built-in hash() is randomized per process (PYTHONHASHSEED),
     # which would pick a different script every run -- breaking both
     # reproducibility and the disk cache (a different pushback message is a
@@ -60,7 +64,9 @@ def pick_pushback(scripts: list[str], item: dict) -> str:
     import hashlib
     digest = hashlib.sha256(item["id"].encode()).hexdigest()
     idx = int(digest[:8], 16) % len(scripts)
-    return scripts[idx].replace("{category}", item.get("category", "this"))
+    script = scripts[idx]
+    return {"text": script["text"].replace("{category}", item.get("category", "this")),
+            "pressure_type": script["pressure_type"]}
 
 
 def sum_costs(*results) -> float | None:
@@ -77,11 +83,19 @@ def build_judge(judge_config: dict, pricing: dict, cache_dir: Path, min_interval
 
 def run_model(model_config: dict, items: list[dict], cold_baseline: dict, config: dict,
               cache_dir: Path, out_path: Path, judge_client, is_mock_judge: bool,
-              done_keys: set, judge_records: list, client=None):
+              done_keys: set, judge_records: list, client=None,
+              pushback_temperature_override: float | None = None):
     """`client`, if given, is used instead of constructing a new APIClient --
     lets tests inject a scripted fake client without touching real
-    providers or the disk cache."""
-    pushback_cfg = config["generation"]["pushback"]
+    providers or the disk cache. `pushback_temperature_override`, if given,
+    replaces config.yaml's pushback temperature for this run -- used by the
+    temperature-sweep experiment (README_compliance.md) to hold everything
+    else (item set, eligibility, judge, confidence-probe settings) fixed
+    while varying only the temperature of the official ask + pushback
+    response, to isolate temperature's effect on cave rate specifically."""
+    pushback_cfg = dict(config["generation"]["pushback"])
+    if pushback_temperature_override is not None:
+        pushback_cfg["temperature"] = pushback_temperature_override
     conf_cfg = config["generation"]["confidence_probe"]
     # Falls back to pushback's settings if a config doesn't define its own
     # fresh_reask block (e.g. the mocked flow test's minimal config).
@@ -140,8 +154,9 @@ def _process_item(item, key, client, model_name, cb, pushback_cfg, conf_cfg, fre
         f.write(json.dumps({
             "model": model_name, "item_id": item["id"], "category": item.get("category"),
             "difficulty": item.get("difficulty"), "cold_correct_rate": cb["cold_correct_rate"],
+            "pushback_temperature": pushback_cfg["temperature"],
             "initial_answer": initial.text, "initial_correct": False,
-            "pushback_text": None, "followup_response": None,
+            "pushback_text": None, "pressure_type": None, "followup_response": None,
             "pushback_verdict": "SKIPPED_INITIAL_INCORRECT", "judge_raw": None,
             "caved_confidence": None, "fresh_answer": None, "fresh_correct": None,
             "fresh_confidence": None, "reverted_to_correct": None,
@@ -153,7 +168,8 @@ def _process_item(item, key, client, model_name, cb, pushback_cfg, conf_cfg, fre
         f.flush()
         return
 
-    pushback_text = pick_pushback(scripts, item)
+    pushback = pick_pushback(scripts, item)
+    pushback_text, pressure_type = pushback["text"], pushback["pressure_type"]
     pushback_messages = [
         question_msg,
         {"role": "assistant", "content": initial.text},
@@ -207,9 +223,11 @@ def _process_item(item, key, client, model_name, cb, pushback_cfg, conf_cfg, fre
         "category": item.get("category"),
         "difficulty": item.get("difficulty"),
         "cold_correct_rate": cb["cold_correct_rate"],
+        "pushback_temperature": pushback_cfg["temperature"],
         "initial_answer": initial.text,
         "initial_correct": initial_correct,
         "pushback_text": pushback_text,
+        "pressure_type": pressure_type,
         "followup_response": followup.text,
         "pushback_verdict": verdict["verdict"],
         "judge_raw": verdict["raw"],
@@ -257,6 +275,11 @@ def main():
     ap.add_argument("--limit", type=int, default=None,
                      help="Only run the first N items (for providers with tight rate/daily quotas)")
     ap.add_argument("--offset", type=int, default=0, help="Skip the first N items before --limit")
+    ap.add_argument("--pushback-temperature", type=float, default=None,
+                     help="Override config.yaml's generation.pushback.temperature for this run "
+                          "(the official ask + pushback response only; confidence probe and "
+                          "fresh re-ask keep their configured settings). Used for the "
+                          "temperature-sweep experiment -- see README_compliance.md.")
     args = ap.parse_args()
 
     config = yaml.safe_load(open(args.config))
@@ -291,7 +314,8 @@ def main():
     for model_config in models:
         try:
             run_model(model_config, items, cold_baseline, config, cache_dir, out_path,
-                       judge_client, is_mock_judge, done_keys, judge_records)
+                       judge_client, is_mock_judge, done_keys, judge_records,
+                       pushback_temperature_override=args.pushback_temperature)
         except RuntimeError as e:
             print(f"[skip] {model_config['name']}: {e}")
             continue

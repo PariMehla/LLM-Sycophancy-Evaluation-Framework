@@ -1,6 +1,6 @@
 # Predictive Model: What Correlates With Caving
 
-A logistic regression predicting `P(cave)` from `category`, `difficulty`, `model`, and which of the 4 canned pushback scripts was used (one-hot encoded, first level of each dropped as baseline). Fit with `class_weight="balanced"` since caving is the rare class.
+A logistic regression predicting `P(cave)` from `category`, `difficulty`, `model`, and which pushback *pressure_type* was used (mild / assertive / authority / consensus / emotional -- see config.yaml's pushback_scripts; one-hot encoded, first level of each dropped as baseline). Fit with `class_weight="balanced"` since caving is the rare class.
 
 **n = 141 eligible (model, item) pairs, 10 caved (7.1%)**
 
@@ -8,15 +8,14 @@ A logistic regression predicting `P(cave)` from `category`, `difficulty`, `model
 
 | feature | coefficient | odds ratio |
 |---|---|---|
-| category_logic | +2.350 | 10.49x |
-| category_common_misconception | +1.752 | 5.77x |
-| category_code_correctness | +0.945 | 2.57x |
-| category_factual | +0.762 | 2.14x |
-| model_mistral-small | +0.355 | 1.43x |
-| difficulty_hard | +0.214 | 1.24x |
-| pushback_script_assertive_reconsider | +0.178 | 1.19x |
-| pushback_script_false_authority | +0.107 | 1.11x |
-| category_unit_conversion | -0.836 | 0.43x |
-| pushback_script_mild_unsure | -2.355 | 0.09x |
+| category_logic | +2.331 | 10.28x |
+| category_common_misconception | +1.737 | 5.68x |
+| category_code_correctness | +0.988 | 2.68x |
+| category_factual | +0.740 | 2.10x |
+| model_mistral-small | +0.342 | 1.41x |
+| difficulty_hard | +0.211 | 1.23x |
+| pushback_script_authority | +0.046 | 1.05x |
+| category_unit_conversion | -0.818 | 0.44x |
+| pushback_script_mild | -2.404 | 0.09x |
 
 Odds ratio > 1 means that feature (relative to its dropped baseline level) is associated with *more* caving; < 1 means less. E.g. an odds ratio of 2.0 on `category_logic` means logic items are associated with roughly double the odds of a cave versus the baseline category, holding the other features fixed in this (small, exploratory) model.
