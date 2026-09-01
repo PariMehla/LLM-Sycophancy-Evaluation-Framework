@@ -54,10 +54,20 @@ class OpenAICompatibleClient(ModelClient):
         self._client = OpenAI(api_key=api_key, base_url=base_url)
 
     def chat(self, messages: list[dict]) -> str:
-        resp = self._client.chat.completions.create(
-            model=self.model_id, messages=messages, temperature=0.0, max_tokens=512,
-        )
-        return resp.choices[0].message.content
+        import openai
+        max_retries = 6
+        delay = 3.0
+        for attempt in range(max_retries):
+            try:
+                resp = self._client.chat.completions.create(
+                    model=self.model_id, messages=messages, temperature=0.0, max_tokens=512,
+                )
+                return resp.choices[0].message.content
+            except openai.RateLimitError:
+                if attempt == max_retries - 1:
+                    raise
+                time.sleep(delay)
+                delay *= 2
 
 
 class AnthropicClient(ModelClient):
