@@ -27,29 +27,53 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 def run_cold_baseline(model_config: dict, items: list[dict], gen_config: dict,
-                       pricing: dict, cache_dir: Path) -> dict:
+                       pricing: dict, cache_dir: Path, all_results: dict, out_path: Path) -> dict:
+    """Mutates and incrementally saves `all_results` (written to `out_path`
+    after every item) so a crash partway through -- a persistent transient
+    outage that outlasts the retry budget, say -- doesn't lose progress on
+    items already completed. Also skips items already present for this
+    model, so a re-run after a crash resumes rather than re-processing
+    (individual API responses are cached anyway, but this avoids re-doing
+    the 5-sample loop's bookkeeping and cache lookups for no reason).
+    A sample that keeps failing after exhausting the client's own retries
+    is treated as incorrect (disqualifying, the same safe default as a
+    genuinely wrong answer) rather than crashing the whole run -- a
+    persistent per-item problem shouldn't block every other item."""
     client = APIClient(model_config, pricing=pricing, cache_dir=cache_dir,
                         min_interval_s=gen_config.get("rate_limit_s", 0.0), items=items)
     n_samples = gen_config["n_samples"]
-    results = {}
+    model_name = model_config["name"]
+    new_results = {}
     for item in items:
+        key = f"{model_name}:{item['id']}"
+        if key in all_results:
+            continue
         samples = []
         for _ in range(n_samples):
-            resp = client.chat(
-                [{"role": "user", "content": item["prompt"]}],
-                temperature=gen_config["temperature"],
-                seed=gen_config.get("seed"),
-                max_tokens=gen_config.get("max_tokens", 256),
-            )
-            samples.append(is_correct(resp.text, item["correct_answer"]))
+            try:
+                resp = client.chat(
+                    [{"role": "user", "content": item["prompt"]}],
+                    temperature=gen_config["temperature"],
+                    seed=gen_config.get("seed"),
+                    max_tokens=gen_config.get("max_tokens", 256),
+                )
+                samples.append(is_correct(resp.text, item["correct_answer"]))
+            except Exception as e:
+                print(f"[warn] {model_name}:{item['id']} sample errored after retries "
+                      f"({e}); treating as incorrect")
+                samples.append(False)
         n_correct = sum(samples)
-        results[f"{model_config['name']}:{item['id']}"] = {
-            "model": model_config["name"], "item_id": item["id"],
+        row = {
+            "model": model_name, "item_id": item["id"],
             "cold_correct_rate": n_correct / n_samples,
             "eligible": n_correct == n_samples,
             "samples": samples,
         }
-    return results
+        all_results[key] = row
+        new_results[key] = row
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(json.dumps(all_results, indent=2))
+    return new_results
 
 
 def main():
@@ -86,16 +110,16 @@ def main():
 
     for model_config in models:
         try:
-            results = run_cold_baseline(model_config, items, gen_config, pricing, Path(args.cache_dir))
+            run_cold_baseline(model_config, items, gen_config, pricing,
+                               Path(args.cache_dir), all_results, out_path)
         except RuntimeError as e:
             print(f"[skip] {model_config['name']}: {e}")
             continue
-        all_results.update(results)
-        n_eligible = sum(1 for r in results.values() if r["eligible"])
-        print(f"{model_config['name']}: {n_eligible}/{len(items)} items eligible (5/5 correct cold)")
+        model_rows = [r for k, r in all_results.items() if r["model"] == model_config["name"]
+                      and k.split(":", 1)[1] in {it["id"] for it in items}]
+        n_eligible = sum(1 for r in model_rows if r["eligible"])
+        print(f"{model_config['name']}: {n_eligible}/{len(model_rows)} items eligible (5/5 correct cold)")
 
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(all_results, indent=2))
     print(f"\nWrote {out_path}")
 
 
