@@ -233,3 +233,27 @@ astronauts report..." nuance). I did not sample any of the 24 HELD
 transcripts by hand, since a HELD verdict is the least consequential
 misclassification risk here (it's the model's default majority outcome,
 not the finding the probe is built to surface).
+
+## Second model: gpt-oss-120b — in progress, blocked on Groq's daily quota
+
+`gpt-oss-120b` (via Groq) is configured as a second real model specifically
+so `mistral-small` isn't the only data point, and deliberately *not*
+`claude-haiku` — using the same model as both subject and judge would be a
+real conflict-of-interest confound.
+
+Its cold baseline is complete: 144/160 items eligible (5/5 correct at
+temperature 0.7). The pushback flow, however, hit Groq's free-tier daily
+token quota (200,000 tokens/day) partway through — the same limit already
+documented in the original benchmark's hard-mode section for this exact
+model. Only 3/144 eligible items completed before requests started coming
+back `429 rate_limit_exceeded` with "try again in ~2 minutes," and since
+that's a *daily* quota, not a short transient limit, retrying with
+exponential backoff (which resolves a real transient 5xx/429 in seconds)
+just burns wall-clock time for no benefit — so I stopped the run rather
+than let it grind for hours on a wall it can't retry through. The 3
+completed items (all `HELD`) are saved in `results/runs.jsonl` alongside
+`mistral-small`'s, and `compliance_eval.py`'s resume logic (skips any
+`model:item_id` key already present in the output file) means re-running
+the same command once the quota resets picks up exactly where this left
+off rather than re-billing or redoing work. This section will be updated
+with the full comparison once that finishes.

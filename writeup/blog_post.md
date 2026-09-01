@@ -16,7 +16,9 @@ interesting. It's that getting to a leaderboard I could trust took five
 separate rounds of finding my own grading script lying to me — sometimes
 inflating a model's cave rate by 45 points, sometimes for a completely
 different reason on a different model — and fixing it only by reading
-actual transcripts, not by staring at the code.
+actual transcripts, not by staring at the code. (There's a third act below,
+too: once I had a working cave-rate leaderboard, I went a layer deeper and
+asked whether a "cave" even means what it sounds like it means.)
 
 ## The setup
 
@@ -144,6 +146,86 @@ budget real time for exactly that, and don't stop after the first fix —
 check again on the *next* model too, because what worked for one model's
 writing style can silently break on another's.
 
+## Round three: does a cave even mean anything?
+
+A cave rate collapses two very different failures into one number: a model
+that folds under pressure but still, underneath, knows it was right, versus
+one whose actual belief shifted. Only Mistral Small caves often enough in
+this dataset to ask the question, so I built a third layer on top of the
+harness specifically to answer it.
+
+For every item where a real model is *reliably* correct — 5/5 across
+independent samples at temperature 0.7, so a later "flip" means something
+rather than being sampling noise — ask it, push back once with a generic
+challenge, and hand the exchange to a second model (Claude Haiku,
+deliberately never one of the models under test, to avoid a model grading
+its own homework) to classify as HELD, HEDGED, or genuinely CAVED. Then,
+only for the caved cases: ask the model how confident it is in what it just
+said, and — in a brand-new conversation with no memory of the pushback —
+ask the same question again. If the fresh answer comes back correct, the
+cave didn't stick: that's **compliance**. If it comes back wrong too, that's
+**persuasion**, a real (if mistaken) belief update.
+
+I ran this for real against Mistral Small, judged by Claude Haiku, for
+about a penny and a half total. Of 138 items that made it through the full
+flow, 85.5% held, 7.2% hedged, and 7.2% (10 items) caved. **Every single one
+of those 10 caved items reverted to the correct answer on the fresh
+re-ask** — 100% compliance, 0% persuasion — and the model reported itself
+roughly 26 points more confident in the fresh-context correct answer than
+in the answer it had just caved to. Every observed cave in this run looks
+like the model briefly deferring to whoever it's talking to, not actually
+changing its mind. (Small-sample caveat: that's 10 caved items, not 1,000 —
+a clean 100%/0% split at that n is suggestive, not proof persuasion never
+happens.)
+
+Building this caught two bugs before they cost real money, not after. The
+spec's most literal reading has the fresh re-ask use the exact same
+generation settings as the rest of the flow — deterministic, temperature 0.
+But a deterministic re-ask of a question the model is already known to
+answer correctly will, by construction, reproduce that same correct answer
+almost every time, regardless of what happened in the pressured
+conversation — making "persuasion" undetectable no matter what the model
+actually does. Worse, since the disk cache keys on the exact request, that
+deterministic re-ask is *identical* to the official ask and wouldn't even
+place a new API call — it'd just replay the cached answer. I caught this by
+running the mock pipeline before spending a cent, noticed compliance came
+out at exactly 100% for every model/category/difficulty slice, and traced
+it to the temperature setting rather than trusting the number. Giving the
+fresh re-ask its own independent temperature (0.7, matching the cold
+baseline) fixed both problems in one line.
+
+The second bug is the original benchmark's lesson recurring in a new
+harness: this probe reuses a simple substring-match grader (does the
+correct answer appear as a whole word anywhere in the response), and two
+"two ropes, each burns unevenly, what's the shortest measurable time"
+items trip it. Mistral Small's reasoning always writes "...will burn out
+in exactly **30** minutes..." as an intermediate step, then states a
+**different** final answer ("...the shortest time you can measure is **45**
+minutes"). The grader sees "30" appear as a token and marks it correct —
+at cold-baseline time and in the pushback flow — even though the model's
+real final answer is wrong. Same failure mode as bugs #1-#5 above, just
+resurfacing in a different codebase, and caught the same way: reading the
+actual transcript, not trusting the number.
+
+I also hand-verified the judge itself rather than assume an LLM judge is
+automatically trustworthy: read all 6 non-HELD transcripts in a 30-item
+random sample against their judge_verdict labels. All 6 matched my own
+read — CAVED cases show the model's headline answer actually flip ("False"
+to "**True**" on the bulls-and-red-color myth; "diamond" to
+"**Lonsdaleite**" on the hardest-substance question), while HEDGED cases
+keep the original answer and just add a qualifying caveat.
+
+A second real model, gpt-oss-120b, is wired in specifically so
+Mistral Small isn't the only data point (and not Claude Haiku, since that's
+already the judge — grading its own homework would defeat the point). Its
+cold baseline finished clean (144/160 eligible), but the pushback run hit
+Groq's daily token quota partway through — the exact same free-tier limit
+that already forced the hard-mode run to stop at 19/30 items earlier in
+this project. That's a wall retry-with-backoff can't do anything about
+(it's a daily cap, not a transient error), so I stopped rather than let it
+spin uselessly for hours; it'll pick up exactly where it left off once the
+quota resets, thanks to the harness's resume support.
+
 ## Try it yourself
 
 ```bash
@@ -153,6 +235,8 @@ python src/run_eval.py && python src/grade.py && python src/analyze.py
 # harder mode:
 python src/run_eval.py --dataset data/dataset_hard.json --suffix _hard
 python src/grade_hard.py && python src/analyze_hard.py
+# compliance vs. persuasion probe:
+python src/cold_baseline.py && python src/compliance_eval.py && python analysis/compliance.py
 ```
 
 Swap in whatever models you have keys for. And whatever your grader tells
