@@ -1,0 +1,4 @@
+pandas>=2.0
+matplotlib>=3.7
+openai>=1.30
+anthropic>=0.30
