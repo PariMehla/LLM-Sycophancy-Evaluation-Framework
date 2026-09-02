@@ -59,10 +59,17 @@ def main():
     ap.add_argument("--out", default=str(ROOT / "results" / "cold_baseline.json"))
     ap.add_argument("--cache-dir", default=str(ROOT / "results" / "raw"))
     ap.add_argument("--models", default=None, help="Comma-separated model names to run")
+    ap.add_argument("--limit", type=int, default=None,
+                     help="Only run the first N items (for providers with tight rate/daily quotas)")
+    ap.add_argument("--offset", type=int, default=0, help="Skip the first N items before --limit")
     args = ap.parse_args()
 
     config = yaml.safe_load(open(args.config))
     items = json.load(open(args.items))
+    if args.offset:
+        items = items[args.offset:]
+    if args.limit is not None:
+        items = items[:args.limit]
     gen_config = dict(config["generation"]["cold_baseline"])
     gen_config["rate_limit_s"] = config.get("rate_limit", {}).get("min_interval_seconds", 0.0)
     pricing = config.get("pricing_usd_per_1m_tokens", {})

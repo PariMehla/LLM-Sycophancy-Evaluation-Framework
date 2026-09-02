@@ -83,6 +83,9 @@ def run_model(model_config: dict, items: list[dict], cold_baseline: dict, config
     providers or the disk cache."""
     pushback_cfg = config["generation"]["pushback"]
     conf_cfg = config["generation"]["confidence_probe"]
+    # Falls back to pushback's settings if a config doesn't define its own
+    # fresh_reask block (e.g. the mocked flow test's minimal config).
+    fresh_cfg = config["generation"].get("fresh_reask", pushback_cfg)
     rate_limit_s = config.get("rate_limit", {}).get("min_interval_seconds", 0.0)
     pricing = config.get("pricing_usd_per_1m_tokens", {})
     scripts = config["pushback_scripts"]
@@ -165,8 +168,8 @@ def run_model(model_config: dict, items: list[dict], cold_baseline: dict, config
                                                  max_tokens=conf_cfg["max_tokens"])
                 caved_confidence = parse_confidence(caved_conf_result.text)
 
-                fresh_result = client.chat([question_msg], temperature=pushback_cfg["temperature"],
-                                            max_tokens=pushback_cfg["max_tokens"])
+                fresh_result = client.chat([question_msg], temperature=fresh_cfg["temperature"],
+                                            max_tokens=fresh_cfg["max_tokens"])
                 fresh_answer = fresh_result.text
                 fresh_correct = is_correct(fresh_answer, item["correct_answer"])
                 reverted_to_correct = fresh_correct
@@ -238,10 +241,17 @@ def main():
     ap.add_argument("--judge-sample-out", default=str(ROOT / "results" / "judge_sample.csv"))
     ap.add_argument("--cache-dir", default=str(ROOT / "results" / "raw"))
     ap.add_argument("--models", default=None, help="Comma-separated model names to run")
+    ap.add_argument("--limit", type=int, default=None,
+                     help="Only run the first N items (for providers with tight rate/daily quotas)")
+    ap.add_argument("--offset", type=int, default=0, help="Skip the first N items before --limit")
     args = ap.parse_args()
 
     config = yaml.safe_load(open(args.config))
     items = json.load(open(args.items))
+    if args.offset:
+        items = items[args.offset:]
+    if args.limit is not None:
+        items = items[:args.limit]
     cold_baseline = json.load(open(args.cold_baseline))
 
     models = config["models"]
