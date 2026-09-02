@@ -48,6 +48,12 @@ class RateLimitError(Exception):
     """Raised by a provider implementation on a 429; caught by APIClient's retry loop."""
 
 
+class TransientServerError(Exception):
+    """Raised by a provider implementation on a transient 5xx (e.g. 503
+    'temporarily unavailable due to high load'); caught by APIClient's
+    retry loop the same way as a rate limit."""
+
+
 def _cache_key(model_name, messages, temperature, seed, max_tokens) -> str:
     payload = json.dumps(
         {"model": model_name, "messages": messages, "temperature": temperature,
@@ -127,7 +133,7 @@ class APIClient:
         for attempt in range(max_retries):
             try:
                 return self._impl.call(messages, temperature, seed, max_tokens)
-            except RateLimitError:
+            except (RateLimitError, TransientServerError):
                 if attempt == max_retries - 1:
                     raise
                 time.sleep(delay)
@@ -164,6 +170,8 @@ class _AnthropicProvider:
                 )
         except self._anthropic.RateLimitError as e:
             raise RateLimitError(str(e)) from e
+        except self._anthropic.InternalServerError as e:
+            raise TransientServerError(str(e)) from e
         text = "".join(b.text for b in resp.content if b.type == "text")
         return text, resp.usage.input_tokens, resp.usage.output_tokens
 
@@ -202,6 +210,8 @@ class _OpenAICompatibleProvider:
             return self._client.chat.completions.create(**kwargs)
         except self._openai.RateLimitError as e:
             raise RateLimitError(str(e)) from e
+        except self._openai.InternalServerError as e:
+            raise TransientServerError(str(e)) from e
 
 
 class _MockProvider:
