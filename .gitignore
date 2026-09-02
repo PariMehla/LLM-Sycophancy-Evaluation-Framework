@@ -2,3 +2,11 @@ __pycache__/
 *.pyc
 .env
 .venv/
+
+# Compliance-probe disk cache: hash-named per-request blobs (results/raw/*.jsonl
+# stays tracked -- that's the original benchmark's per-model transcripts).
+# These are bulky, low-value individually, and fully regenerable (the demo
+# cache is the zero-cost mock provider; a real run would want to keep its
+# own cache locally to avoid re-billing, but that's a local concern, not
+# something to version).
+results/raw/*.json

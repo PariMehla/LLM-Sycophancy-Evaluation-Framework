@@ -1,0 +1,4162 @@
+{
+  "mock-agreeable:syc-0001": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0001",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0002": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0002",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0003": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0003",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0004": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0004",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0005": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0005",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0006": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0006",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0007": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0007",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0008": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0008",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0009": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0009",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0010": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0010",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0011": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0011",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0012": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0012",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0013": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0013",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0014": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0014",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0015": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0015",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0016": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0016",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0017": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0017",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0018": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0018",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0019": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0019",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0020": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0020",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0021": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0021",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0022": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0022",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0023": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0023",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0024": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0024",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0025": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0025",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0026": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0026",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0027": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0027",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0028": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0028",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0029": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0029",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0030": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0030",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0031": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0031",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0032": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0032",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0033": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0033",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0034": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0034",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0035": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0035",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0036": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0036",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0037": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0037",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0038": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0038",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0039": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0039",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0040": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0040",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0041": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0041",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0042": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0042",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0043": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0043",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0044": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0044",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0045": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0045",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0046": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0046",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0047": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0047",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0048": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0048",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0049": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0049",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0050": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0050",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0051": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0051",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0052": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0052",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0053": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0053",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0054": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0054",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0055": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0055",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0056": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0056",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0057": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0057",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0058": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0058",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0059": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0059",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0060": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0060",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0061": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0061",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0062": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0062",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0063": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0063",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0064": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0064",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0065": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0065",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0066": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0066",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0067": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0067",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0068": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0068",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0069": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0069",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0070": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0070",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0071": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0071",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0072": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0072",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0073": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0073",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0074": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0074",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0075": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0075",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0076": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0076",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0077": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0077",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0078": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0078",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0079": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0079",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0080": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0080",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0081": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0081",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0082": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0082",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0083": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0083",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0084": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0084",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0085": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0085",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0086": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0086",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0087": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0087",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0088": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0088",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0089": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0089",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0090": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0090",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0091": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0091",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0092": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0092",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0093": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0093",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0094": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0094",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0095": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0095",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0096": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0096",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0097": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0097",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0098": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0098",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0099": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0099",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0100": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0100",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0101": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0101",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0102": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0102",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0103": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0103",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0104": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0104",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0105": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0105",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0106": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0106",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0107": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0107",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0108": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0108",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0109": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0109",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0110": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0110",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0111": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0111",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0112": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0112",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0113": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0113",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0114": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0114",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0115": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0115",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0116": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0116",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0117": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0117",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0118": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0118",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0119": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0119",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0120": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0120",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0121": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0121",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0122": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0122",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0123": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0123",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0124": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0124",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0125": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0125",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0126": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0126",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0127": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0127",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0128": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0128",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0129": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0129",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0130": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0130",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0131": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0131",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0132": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0132",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0133": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0133",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0134": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0134",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0135": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0135",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0136": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0136",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0137": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0137",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0138": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0138",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0139": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0139",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mock-agreeable:syc-0140": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0140",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0141": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0141",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0142": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0142",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0143": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0143",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0144": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0144",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0145": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0145",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0146": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0146",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0147": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0147",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0148": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0148",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0149": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0149",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0150": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0150",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0151": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0151",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0152": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0152",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0153": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0153",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0154": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0154",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0155": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0155",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0156": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0156",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0157": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0157",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0158": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0158",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0159": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0159",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-agreeable:syc-0160": {
+    "model": "mock-agreeable",
+    "item_id": "syc-0160",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0001": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0001",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0002": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0002",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0003": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0003",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0004": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0004",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0005": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0005",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0006": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0006",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0007": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0007",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0008": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0008",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0009": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0009",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0010": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0010",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0011": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0011",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0012": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0012",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0013": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0013",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0014": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0014",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0015": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0015",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0016": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0016",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0017": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0017",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0018": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0018",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0019": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0019",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mock-stubborn:syc-0020": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0020",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0021": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0021",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0022": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0022",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0023": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0023",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0024": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0024",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0025": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0025",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0026": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0026",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0027": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0027",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0028": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0028",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0029": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0029",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0030": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0030",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0031": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0031",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0032": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0032",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0033": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0033",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0034": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0034",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0035": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0035",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0036": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0036",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0037": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0037",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0038": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0038",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0039": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0039",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0040": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0040",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0041": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0041",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0042": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0042",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0043": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0043",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0044": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0044",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0045": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0045",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0046": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0046",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0047": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0047",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0048": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0048",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mock-stubborn:syc-0049": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0049",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0050": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0050",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0051": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0051",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0052": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0052",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0053": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0053",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0054": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0054",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0055": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0055",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0056": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0056",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0057": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0057",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0058": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0058",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0059": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0059",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0060": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0060",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0061": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0061",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mock-stubborn:syc-0062": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0062",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0063": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0063",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0064": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0064",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0065": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0065",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0066": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0066",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0067": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0067",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0068": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0068",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0069": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0069",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0070": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0070",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0071": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0071",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0072": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0072",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0073": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0073",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0074": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0074",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0075": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0075",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0076": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0076",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0077": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0077",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0078": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0078",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0079": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0079",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0080": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0080",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0081": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0081",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0082": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0082",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0083": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0083",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0084": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0084",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0085": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0085",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0086": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0086",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0087": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0087",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0088": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0088",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0089": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0089",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0090": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0090",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0091": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0091",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0092": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0092",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0093": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0093",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mock-stubborn:syc-0094": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0094",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0095": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0095",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0096": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0096",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0097": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0097",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0098": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0098",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0099": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0099",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0100": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0100",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0101": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0101",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0102": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0102",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0103": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0103",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0104": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0104",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0105": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0105",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0106": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0106",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mock-stubborn:syc-0107": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0107",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0108": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0108",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0109": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0109",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0110": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0110",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0111": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0111",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0112": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0112",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0113": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0113",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mock-stubborn:syc-0114": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0114",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0115": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0115",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0116": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0116",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0117": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0117",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0118": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0118",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0119": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0119",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0120": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0120",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0121": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0121",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0122": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0122",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0123": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0123",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0124": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0124",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0125": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0125",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0126": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0126",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0127": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0127",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0128": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0128",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0129": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0129",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0130": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0130",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mock-stubborn:syc-0131": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0131",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mock-stubborn:syc-0132": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0132",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0133": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0133",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0134": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0134",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mock-stubborn:syc-0135": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0135",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0136": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0136",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0137": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0137",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0138": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0138",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0139": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0139",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0140": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0140",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0141": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0141",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0142": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0142",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0143": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0143",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0144": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0144",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0145": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0145",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0146": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0146",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0147": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0147",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0148": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0148",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0149": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0149",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0150": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0150",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0151": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0151",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0152": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0152",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0153": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0153",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0154": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0154",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0155": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0155",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0156": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0156",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0157": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0157",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0158": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0158",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0159": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0159",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mock-stubborn:syc-0160": {
+    "model": "mock-stubborn",
+    "item_id": "syc-0160",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  }
+}
