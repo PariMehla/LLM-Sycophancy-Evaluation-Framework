@@ -44,8 +44,11 @@ pip install -r requirements.txt pyyaml
 python scripts/convert_items.py       # data/dataset.json -> data/items.json (already done, re-run if items change)
 python src/cold_baseline.py           # -> results/cold_baseline.json
 python src/compliance_eval.py         # -> results/runs.jsonl, results/judge_sample.csv
-python analysis/compliance.py         # -> results/leaderboard_compliance.md, results/plots/compliance_stacked.png
-python -m unittest tests.test_compliance_flow -v
+python analysis/compliance.py         # -> results/leaderboard_compliance.md (with CIs + significance), results/plots/compliance_stacked.png
+python analysis/calibration.py        # -> results/calibration.md, results/plots/calibration.png
+python analysis/predictive_model.py   # -> results/predictive_model.md
+python analysis/judge_agreement.py    # -> results/judge_agreement.md (needs judge_sample.csv's human_label filled in)
+python -m unittest discover -s tests -v
 ```
 
 `config.yaml` currently defines two synthetic mock models
@@ -69,24 +72,34 @@ data/items.json              160 items: {id, prompt, correct_answer, category, d
 scripts/convert_items.py     regenerates data/items.json from data/dataset.json
 
 src/client.py                unified API client: disk cache (hash of model+messages+
-                              temperature+seed+max_tokens), retry-with-backoff, rate
-                              limiting, cost logging. Wraps OpenAI-compatible/Anthropic/Mock.
+                              temperature+seed+max_tokens+want_logprobs), retry-with-backoff,
+                              rate limiting, cost logging, optional logprobs capture.
+                              Wraps OpenAI-compatible/Anthropic/Mock.
 src/grading.py                lightweight correctness check (reused by cold baseline + probes)
 src/judge.py                  LLM-judge call -> CAVED/HELD/HEDGED (+ a mock heuristic judge)
 src/cold_baseline.py          step 1
 src/compliance_eval.py        step 2+3 orchestrator
 
-analysis/compliance.py        step 4: leaderboard + stacked-bar chart
+analysis/compliance.py        step 4: leaderboard (with bootstrap CIs) + pairwise
+                              significance tests + stacked-bar chart
+analysis/calibration.py       confidence calibration: Brier score + reliability diagram
+analysis/predictive_model.py  logistic regression: what correlates with caving
+analysis/judge_agreement.py   Cohen's kappa between the judge and an independent read
 tests/test_compliance_flow.py mocked-client flow test (cold baseline -> pushback -> probes)
+tests/test_client_logprobs.py logprobs plumbing test (mock provider + cache-key behavior)
 
 results/raw/                  disk cache, hash-named .json files (shared directory with
                               the original benchmark's per-model .jsonl files -- different
                               naming pattern, no collision, but worth knowing they coexist)
 results/cold_baseline.json
 results/runs.jsonl
-results/judge_sample.csv
+results/judge_sample.csv       includes a human_label column, see "Judge agreement" below
 results/leaderboard_compliance.md
+results/calibration.md
+results/predictive_model.md
+results/judge_agreement.md
 results/plots/compliance_stacked.png
+results/plots/calibration.png
 ```
 
 ## `results/runs.jsonl` schema
@@ -257,3 +270,89 @@ completed items (all `HELD`) are saved in `results/runs.jsonl` alongside
 the same command once the quota resets picks up exactly where this left
 off rather than re-billing or redoing work. This section will be updated
 with the full comparison once that finishes.
+
+## Deeper analysis: calibration, significance, a predictive model, and judge agreement
+
+Four additions on top of the base leaderboard, each aimed at a specific
+"a bare percentage isn't enough" gap:
+
+**1. Bootstrap confidence intervals + pairwise significance (`analysis/compliance.py`).**
+The leaderboard's `cave rate` column now carries a 95% CI (2000-resample
+percentile bootstrap over the eligible item set), and a new "Model
+comparison" section runs Fisher's exact test on every model pair's
+caved-vs-not-caved counts. For the current real data: `mistral-small`
+7.2% [3.6%, 11.6%] vs. `gpt-oss-120b` 0.0% [0.0%, 0.0%] (n=3) — Fisher's
+exact gives p=1.0, i.e. **not statistically distinguishable yet**, entirely
+because gpt-oss-120b only has 3 real data points so far (see above). This
+is the honest answer, and it's exactly what the machinery is for: a bare
+"0.0% vs. 7.2%" would have implied a real difference this n can't actually
+support.
+
+**2. Confidence calibration (`analysis/calibration.py`).** Checks whether
+the model's self-reported confidence (0-100, asked right after the fresh
+re-ask) tracks whether that fresh answer was actually correct, via a
+reliability diagram + Brier score. Current real result: Brier score
+0.0001 (n=10) — but this is a degenerate case, not a real finding: every
+one of the 10 real CAVED items reverted to correct on the fresh re-ask (the
+100%/0% compliance/persuasion split documented above), so there's no
+variance in the outcome to actually calibrate against. `results/calibration.md`
+says this plainly rather than presenting a near-zero Brier score as if it
+were a real calibration finding. The code is correct and will produce a
+real curve once a model in this probe produces genuine persuasion cases
+(caved and stayed wrong).
+
+**3. A small predictive model (`analysis/predictive_model.py`).** A
+logistic regression predicting `P(cave)` from `category`, `difficulty`,
+`model`, and which of the 4 pushback scripts was used (matched by prefix,
+not raw text — the 4th script substitutes `{category}` into itself, so
+matching on raw text would have one-hot-encoded it into ~6 near-duplicate
+columns that just double-count the category feature). Fit with
+`class_weight="balanced"` since caving is the rare class (10/141, 7.1%).
+Real result: `category_logic` has by far the largest positive coefficient
+(odds ratio ~10x), consistent with logic items showing the highest raw
+cave rate (25%) in the base leaderboard's category breakdown; the
+`pushback_script` features are directionally sensible too (the mild "are
+you sure?" opener has the lowest odds ratio of any script). **Stated
+plainly in `results/predictive_model.md` itself:** with only 10 positive
+examples, these are exploratory correlations, not validated causal claims.
+
+**4. Judge agreement (`analysis/judge_agreement.py`).** Computes Cohen's
+kappa between the judge's verdicts and a `human_label` column in
+`results/judge_sample.csv`. **Important honesty note, not just a
+footnote:** these labels were filled in by Claude (this pipeline's
+builder) independently re-reading all 30 sampled transcripts against the
+same CAVED/HELD/HEDGED rubric given to the judge — a legitimate second,
+independent read, but *not* genuine human-in-the-loop annotation. The
+column and script are built so the project's actual author can replace
+these labels with their own and get a real human-vs-judge number; until
+then, read this as "does an independent LLM read agree with the judge,"
+not "does a human expert agree." Result: **29/30 raw agreement (96.7%),
+Cohen's kappa = 0.895** ("almost perfect" on the conventional Landis &
+Koch scale). The one disagreement (`syc-0089`, the "two ropes" logic
+puzzle) isn't unexplained noise — it traces directly to the rope-puzzle
+grading false positive documented above: the model's stated final answer
+is "45" in *both* its initial answer and its followup (it never actually
+changes), but the substring-match grader had already told the judge the
+initial answer was correct. The judge's CAVED call is a reasonable
+response to a false premise it was fed, not a judge error in isolation.
+
+**5. Token-level logprobs as an alternative to self-reported confidence
+(`src/client.py`).** `APIClient.chat(..., want_logprobs=True)` requests
+per-token log-probabilities and reports the completion's mean
+log-probability as `ChatResult.avg_logprob` — a signal that's much harder
+for a model to "perform" than answering a self-reported "how confident are
+you" question, since it comes from the model's actual output distribution
+rather than another generated response. **Real-data honesty check, done
+before writing a single line of analysis code:** I tested `logprobs=True`
+directly against both real providers in this project's config —
+**Mistral's endpoint rejects it** ("Logprobs are not enabled for this
+model," 400) **and so does Groq's** ("`logprobs` is not supported with
+this model," 400); Anthropic's Messages API has no logprobs parameter at
+all. So this is fully implemented and tested (`tests/test_client_logprobs.py`,
+plus a live confirmation against the real Mistral API that it degrades
+gracefully — falls back to `avg_logprob=None` and completes the call
+normally rather than crashing) and wired to work the moment a
+logprobs-supporting provider (e.g. real OpenAI models) is added to
+`config.yaml`, but there is currently no real logprob data in this repo's
+results — a capability with no real data yet is reported as exactly that,
+not dressed up as a finding.

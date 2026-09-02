@@ -18,21 +18,64 @@ Definitions:
 Usage: python analysis/compliance.py [--runs results/runs.jsonl]
 """
 import argparse
+import itertools
 import json
 from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
+from scipy import stats
 
 ROOT = Path(__file__).resolve().parent.parent
+BOOTSTRAP_N = 2000
+BOOTSTRAP_SEED = 42
 
 
 def load_runs(path: Path) -> pd.DataFrame:
     rows = [json.loads(line) for line in open(path)]
     if not rows:
         raise SystemExit(f"No rows in {path} -- run compliance_eval.py first.")
+    return pd.DataFrame(rows)
+
+
+def bootstrap_cave_rate_ci(g: pd.DataFrame, n_boot: int = BOOTSTRAP_N,
+                            seed: int = BOOTSTRAP_SEED) -> tuple[float, float]:
+    """95% CI on cave_rate via the percentile bootstrap: resample items (with
+    replacement) from the eligible set, recompute cave_rate, repeat. A bare
+    point estimate on ~10-140 items invites reading noise as signal; this
+    makes the uncertainty explicit instead."""
+    n = len(g)
+    if n == 0:
+        return float("nan"), float("nan")
+    caved = (g.pushback_verdict == "CAVED").to_numpy()
+    rng = np.random.default_rng(seed)
+    idx = rng.integers(0, n, size=(n_boot, n))
+    rates = caved[idx].mean(axis=1)
+    return float(np.percentile(rates, 2.5)), float(np.percentile(rates, 97.5))
+
+
+def pairwise_significance(df: pd.DataFrame) -> pd.DataFrame:
+    """Fisher's exact test on caved-vs-not 2x2 tables between every pair of
+    models with at least one eligible item -- exact (not a chi-square
+    approximation), appropriate given how small some of these counts are."""
+    elig = df[df.pushback_verdict != "SKIPPED_INITIAL_INCORRECT"]
+    models = sorted(elig["model"].unique())
+    rows = []
+    for a, b in itertools.combinations(models, 2):
+        ga, gb = elig[elig.model == a], elig[elig.model == b]
+        table = [
+            [(ga.pushback_verdict == "CAVED").sum(), (ga.pushback_verdict != "CAVED").sum()],
+            [(gb.pushback_verdict == "CAVED").sum(), (gb.pushback_verdict != "CAVED").sum()],
+        ]
+        _, p = stats.fisher_exact(table)
+        rows.append({
+            "model_a": a, "n_a": len(ga), "caved_a": table[0][0],
+            "model_b": b, "n_b": len(gb), "caved_b": table[1][0],
+            "p_value": p,
+        })
     return pd.DataFrame(rows)
 
 
@@ -57,10 +100,12 @@ def summarize(df: pd.DataFrame, group_cols: list[str]) -> pd.DataFrame:
         gap_rows = caved.dropna(subset=["fresh_confidence", "caved_confidence"])
         confidence_gap = (gap_rows.fresh_confidence - gap_rows.caved_confidence).mean() \
             if len(gap_rows) else float("nan")
+        ci_low, ci_high = bootstrap_cave_rate_ci(g)
         out_rows.append({
             **dict(zip(group_cols, keys)),
             "n": n, "n_skipped_initial_incorrect": int(n_skipped),
-            "cave_rate": cave_rate, "held_rate": held_rate, "hedge_rate": hedge_rate,
+            "cave_rate": cave_rate, "cave_rate_ci_low": ci_low, "cave_rate_ci_high": ci_high,
+            "held_rate": held_rate, "hedge_rate": hedge_rate,
             "n_caved": len(caved), "compliance_rate": compliance_rate,
             "persuasion_rate": persuasion_rate, "confidence_gap": confidence_gap,
         })
@@ -93,19 +138,37 @@ def to_markdown_table(df: pd.DataFrame) -> str:
 
 
 def make_markdown(per_model: pd.DataFrame, per_category: pd.DataFrame,
-                   per_difficulty: pd.DataFrame) -> str:
+                   per_difficulty: pd.DataFrame, pairwise: pd.DataFrame) -> str:
     lines = ["# Compliance vs. Persuasion Leaderboard", ""]
-    lines.append("| model | n | cave rate | held | hedged | n caved | "
+    lines.append("| model | n | cave rate (95% CI) | held | hedged | n caved | "
                   "compliance (reverted) | persuasion (stuck) | confidence gap |")
     lines.append("|---|---|---|---|---|---|---|---|---|")
     for _, r in per_model.iterrows():
+        ci = f"[{r['cave_rate_ci_low']:.1%}, {r['cave_rate_ci_high']:.1%}]" \
+            if pd.notna(r["cave_rate_ci_low"]) else "n/a"
         lines.append(
-            f"| {r['model']} | {r['n']} | {format_pct(r['cave_rate'])} | "
+            f"| {r['model']} | {r['n']} | {format_pct(r['cave_rate'])} {ci} | "
             f"{format_pct(r['held_rate'])} | {format_pct(r['hedge_rate'])} | {r['n_caved']} | "
             f"{format_pct(r['compliance_rate'])} | {format_pct(r['persuasion_rate'])} | "
             f"{format_gap(r['confidence_gap'])} |"
         )
-    lines += ["", "## By category", "", to_markdown_table(per_category), ""]
+    lines += ["", "CI = 95% bootstrap percentile interval on cave_rate (2000 resamples of "
+              "the eligible item set, seed 42) -- with n in the low hundreds and cave rates "
+              "often in the single digits, a bare percentage overstates precision.", ""]
+
+    lines += ["## Model comparison (Fisher's exact test on caved vs. not-caved)", ""]
+    if len(pairwise):
+        lines.append("| model A | n | caved | model B | n | caved | p-value | significant (p<0.05) |")
+        lines.append("|---|---|---|---|---|---|---|---|")
+        for _, r in pairwise.iterrows():
+            sig = "yes" if r["p_value"] < 0.05 else "no"
+            lines.append(f"| {r['model_a']} | {r['n_a']} | {r['caved_a']} | {r['model_b']} | "
+                         f"{r['n_b']} | {r['caved_b']} | {r['p_value']:.4f} | {sig} |")
+        lines.append("")
+    else:
+        lines.append("Only one model has eligible items -- nothing to compare yet.\n")
+
+    lines += ["## By category", "", to_markdown_table(per_category), ""]
     lines += ["## By difficulty", "", to_markdown_table(per_difficulty), ""]
     return "\n".join(lines)
 
@@ -150,8 +213,9 @@ def main():
     per_model = summarize(df, ["model"])
     per_category = summarize(df, ["model", "category"])
     per_difficulty = summarize(df, ["model", "difficulty"])
+    pairwise = pairwise_significance(df)
 
-    md = make_markdown(per_model, per_category, per_difficulty)
+    md = make_markdown(per_model, per_category, per_difficulty, pairwise)
     Path(args.out_md).write_text(md)
     print(md)
 
