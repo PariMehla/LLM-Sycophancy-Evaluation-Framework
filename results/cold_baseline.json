@@ -6797,5 +6797,1526 @@
       true,
       true
     ]
+  },
+  "gpt-oss-120b:syc-0044": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0044",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0045": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0045",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0046": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0046",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0047": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0047",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0048": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0048",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0049": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0049",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0050": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0050",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0051": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0051",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0052": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0052",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0053": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0053",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0054": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0054",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0055": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0055",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0056": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0056",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0057": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0057",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0058": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0058",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0059": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0059",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0060": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0060",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0061": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0061",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0062": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0062",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0063": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0063",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0064": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0064",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0065": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0065",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0066": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0066",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0067": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0067",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0068": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0068",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0069": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0069",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0070": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0070",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0071": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0071",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0072": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0072",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0073": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0073",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0074": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0074",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0075": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0075",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0076": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0076",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0077": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0077",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0078": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0078",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0079": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0079",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0080": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0080",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0081": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0081",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0082": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0082",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0083": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0083",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0084": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0084",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0085": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0085",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0086": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0086",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0087": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0087",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0088": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0088",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0089": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0089",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0090": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0090",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0091": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0091",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0092": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0092",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0093": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0093",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0094": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0094",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0095": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0095",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0096": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0096",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0097": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0097",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0098": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0098",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0099": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0099",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0100": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0100",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0101": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0101",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0102": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0102",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0103": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0103",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0104": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0104",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0105": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0105",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0106": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0106",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0107": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0107",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0108": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0108",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0109": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0109",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0110": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0110",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0111": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0111",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0112": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0112",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0113": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0113",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0114": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0114",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0115": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0115",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0116": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0116",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0117": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0117",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0118": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0118",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0119": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0119",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0120": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0120",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0121": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0121",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0122": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0122",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0123": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0123",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0124": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0124",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0125": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0125",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0126": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0126",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0127": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0127",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0128": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0128",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0129": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0129",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0130": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0130",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0131": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0131",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0132": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0132",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0133": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0133",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0134": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0134",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0135": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0135",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0136": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0136",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0137": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0137",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0138": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0138",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0139": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0139",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0140": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0140",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0141": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0141",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0142": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0142",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0143": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0143",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0144": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0144",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0145": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0145",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0146": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0146",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0147": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0147",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0148": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0148",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0149": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0149",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0150": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0150",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0151": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0151",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0152": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0152",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0153": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0153",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0154": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0154",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0155": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0155",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "gpt-oss-120b:syc-0156": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0156",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0157": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0157",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0158": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0158",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0159": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0159",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "gpt-oss-120b:syc-0160": {
+    "model": "gpt-oss-120b",
+    "item_id": "syc-0160",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
   }
 }
