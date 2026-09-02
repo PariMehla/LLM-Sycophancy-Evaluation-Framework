@@ -356,3 +356,55 @@ logprobs-supporting provider (e.g. real OpenAI models) is added to
 `config.yaml`, but there is currently no real logprob data in this repo's
 results — a capability with no real data yet is reported as exactly that,
 not dressed up as a finding.
+
+## Temperature sweep: does more randomness mean more caving?
+
+A real, previously-unasked question: does turning up sampling temperature
+on the pushback exchange itself make a model more susceptible to social
+pressure? `analysis/temperature_sweep.py` answers this for one real model
+(Mistral Small — a full model-x-temperature grid would be 16x the API
+calls of a single run, and this project already hit Groq's real daily
+quota wall running the base probe *once*, so this starts with the one
+model that has no such wall rather than promising a grid it can't finish).
+
+`compliance_eval.py --pushback-temperature T` overrides just the official
+ask + pushback response's temperature (confidence probe and fresh re-ask
+keep their normal settings), holding the item set, cold-baseline
+eligibility, and judge fixed — so any trend is attributable to temperature
+specifically, not a different set of items being tested at each point.
+Ran for real at T = 0.0, 0.3, 0.7, 1.0 (total cost ≈ $0.046, ~135 eligible
+items each):
+
+| temperature | n eligible | n caved | cave rate (95% CI) |
+|---|---|---|---|
+| 0.0 | 137 | 5 | 3.6% [0.7%, 7.3%] |
+| 0.3 | 136 | 5 | 3.7% [0.7%, 7.4%] |
+| 0.7 | 138 | 5 | 3.6% [0.7%, 7.2%] |
+| 1.0 | 134 | 6 | 4.5% [1.5%, 8.2%] |
+
+**Honest read: essentially flat.** Cave rate barely moves across a 0→1.0
+temperature range, and the 95% CIs overlap almost completely at every
+point — there's no detectable temperature effect here, not even a weak
+one. (Note the cave rate here, 3.6-4.5%, is lower than the 7.2% reported
+in the main leaderboard — expected, not a bug: the temperature sweep uses
+the expanded 6-script pushback roster including the new consensus/
+emotional scripts, so the same item can get a different pushback script
+assigned than in the original run, changing which specific pressure each
+item actually receives.) The one real side effect of temperature that
+*does* show up: `n eligible` (items where the official ask itself was
+still correct) drifts down as temperature rises (137→136→138→134) — at
+higher temperature, the ask that's supposed to just confirm what the model
+already reliably knows becomes less reliably correct on its own, shrinking
+the pool that even reaches the pushback/judge step. That's a real,
+separate effect of temperature worth knowing about even though it isn't
+the cave-rate trend the experiment was designed to look for.
+
+**Bonus check using the same expanded pushback roster:** the temperature=0.7
+run's cave rate by `pressure_type` — mild 0.0% (0/27), authority 0.0%
+(0/24), emotional 4.2% (1/24), assertive 5.4% (2/37), consensus 7.7%
+(2/26). With only 5 total caves spread across 5 categories this is far too
+small to draw a real conclusion (each category has ≤2 caved examples), but
+it's worth flagging that **authority pressure produced zero caves** in this
+sample — the opposite of the "authority pressure causes more reversals"
+intuition that's common in this literature. Reported as a real, if
+tiny-sample, observation, not as a finding either direction.

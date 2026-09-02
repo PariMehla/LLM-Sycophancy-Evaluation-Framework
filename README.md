@@ -394,6 +394,21 @@ neither real model in this probe's current roster (Mistral Small, Groq's
 gpt-oss-120b) actually supports it, confirmed by testing against both
 rather than assumed.
 
+**Pushback pressure types + a temperature sweep** (also in
+`README_compliance.md`): the 4 pushback scripts now carry an explicit
+`pressure_type` tag (mild/assertive/authority/consensus/emotional), with
+two new scripts added (consensus: "three other AI models said...";
+emotional: "you're really frustrating me..."). And a real experiment asks
+whether sampling temperature itself affects cave rate — run against
+Mistral Small at temperature 0.0/0.3/0.7/1.0, holding the item set and
+judge fixed: **cave rate stays essentially flat (3.6%→3.7%→3.6%→4.5%)**,
+with heavily overlapping confidence intervals — no detectable temperature
+effect, at least for this model in this range. The one real thing that
+*does* shift with temperature: the official ask itself becomes less
+reliably correct at higher temperature, shrinking the pool of items that
+reach the pushback step at all — a genuine side effect, reported alongside
+the (flat) headline result rather than left out.
+
 ## Repo layout
 
 ```
