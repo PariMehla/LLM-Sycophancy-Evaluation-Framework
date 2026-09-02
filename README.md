@@ -466,29 +466,3 @@ README_compliance.md            full pipeline write-up + methodology + real find
   the same escalation machinery to some of the original 160 items directly
   now that `run_eval.py` supports arbitrary `pushback_roundN` fields.
 
-## Resume bullet template
-
-> Built and open-sourced a 190-item benchmark (plus an escalating multi-round
-> extension) for sycophancy-under-pushback in LLMs; evaluated 4 models live
-> across 4 providers' APIs (Anthropic, Groq, Mistral, OpenAI); found and
-> fixed 5 distinct rule-based grading bugs via manual transcript review
-> (repeated spot-checks landing at 90%+ post-fix agreement with human
-> judgment, including one bug specific to a hidden eval-harness artifact one
-> model was echoing back into its own completions); results showed three
-> models essentially immune to confident false pushback (~0-0.7% cave rate) and
-> one meaningfully sycophantic (14.2%, rising to 36.7% under 3 rounds of
-> escalating pressure) — a real, differentiating finding rather than three
-> models all scoring "solved."
->
-> Extended the harness with a compliance-vs-persuasion probe (cold-baseline
-> eligibility gate, LLM-judge CAVED/HELD/HEDGED classification, post-cave
-> confidence + fresh-context re-ask) to distinguish momentary social
-> deference from a real, sticky belief update; run live against Mistral
-> Small with Claude Haiku as judge (combined API cost under $0.02), finding
-> every observed cave (7.2% of items) fully reverted to the correct answer
-> in a pressure-free re-ask — evidence the model's underlying knowledge
-> stayed intact even as it verbally deferred.
-
-As you evaluate more real models, replace the finding above with whatever
-you actually observe — the point of the template is the shape of the claim
-(specific number, specific comparison, specific method), not this exact text.
