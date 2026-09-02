@@ -128,7 +128,11 @@ def main():
         client = clients[0]
         print(f"[run] {client.name} on {len(dataset)} items...")
         out_path = out_dir / f"{client.name}.jsonl"
-        run_one_model(client, dataset, out_path, sleep_s=args.sleep)
+        try:
+            run_one_model(client, dataset, out_path, sleep_s=args.sleep)
+        except Exception as e:
+            print(f"[error] {client.name} failed mid-run, skipping: {e}")
+            continue
         print(f"[done] {client.name} -> {out_path}")
 
 
