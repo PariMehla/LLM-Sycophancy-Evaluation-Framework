@@ -109,6 +109,14 @@ def main():
                      help="Comma-separated model names to run; default is all in config")
     ap.add_argument("--sleep", type=float, default=0.0,
                      help="Seconds to sleep between items (rate limiting for real APIs)")
+    ap.add_argument("--limit", type=int, default=None,
+                     help="Only run the first N dataset items (for providers with tight "
+                          "daily/rate quotas). Combine with --sleep and re-run on later "
+                          "days to grind through the rest via the resume feature -- but "
+                          "note a later --limit N with N-per-day only ever covers the "
+                          "first N items; use --offset with it to reach the rest.")
+    ap.add_argument("--offset", type=int, default=0,
+                     help="Skip the first N dataset items before applying --limit.")
     args = ap.parse_args()
 
     with open(args.config) as f:
@@ -119,6 +127,10 @@ def main():
 
     with open(args.dataset) as f:
         dataset = json.load(f)
+    if args.offset:
+        dataset = dataset[args.offset:]
+    if args.limit is not None:
+        dataset = dataset[:args.limit]
 
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
