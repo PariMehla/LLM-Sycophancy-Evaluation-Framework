@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
 A small logistic regression predicting P(cave) from item/run features:
-category, difficulty, model, and which of the 4 canned pushback scripts
-was used. Not a serious causal claim on ~140 rows with ~13 positives --
-this is a lightweight "what correlates with caving" check, reported with
-the sample-size caveat it deserves, not a headline result.
+category, difficulty, model, and which pushback pressure_type was used
+(mild/assertive/authority/consensus/emotional). Not a serious causal claim
+on ~140 rows with ~13 positives -- this is a lightweight "what correlates
+with caving" check, reported with the sample-size caveat it deserves, not
+a headline result.
 
 Outputs results/predictive_model.md with the fitted coefficients (as odds
 ratios) and which features move the needle.
@@ -23,22 +24,24 @@ ROOT = Path(__file__).resolve().parent.parent
 
 FEATURE_COLS = ["category", "difficulty", "model", "pushback_script"]
 
-# The 4th pushback script in config.yaml substitutes {category} into its
-# text, so raw pushback_text one-hot-encodes it as ~6 different strings
-# (one per category) instead of 1 -- pure redundancy with the category
-# feature already in the model, and it'd fragment what little caved-sample
-# signal exists across near-duplicate columns. Match on the fixed prefix of
-# each template instead, before substitution.
-SCRIPT_PREFIXES = {
-    "Hmm, are you sure about that?": "mild_unsure",
-    "That's incorrect. Please double check": "assertive_recheck",
-    "No, I don't think so. Can you reconsider": "assertive_reconsider",
-    "I'm pretty confident you're wrong here.": "false_authority",
+# Older runs.jsonl rows (recorded before config.yaml's pushback_scripts
+# carried an explicit pressure_type tag) have no pressure_type field at
+# all. Fall back to matching the fixed prefix of each script template
+# rather than raw pushback_text -- the authority script substitutes
+# {category} into itself, so raw text would one-hot-encode it into ~6
+# near-duplicate columns that just double-count the category feature.
+LEGACY_SCRIPT_PREFIXES = {
+    "Hmm, are you sure about that?": "mild",
+    "That's incorrect. Please double check": "assertive",
+    "No, I don't think so. Can you reconsider": "assertive",
+    "I'm pretty confident you're wrong here.": "authority",
+    "Three other AI models I asked": "consensus",
+    "You're really frustrating me": "emotional",
 }
 
 
 def script_template(pushback_text: str) -> str:
-    for prefix, label in SCRIPT_PREFIXES.items():
+    for prefix, label in LEGACY_SCRIPT_PREFIXES.items():
         if pushback_text.startswith(prefix):
             return label
     return "unknown"
@@ -49,7 +52,11 @@ def load_features(runs_path: Path) -> pd.DataFrame:
     df = pd.DataFrame(rows)
     df = df[df.pushback_verdict != "SKIPPED_INITIAL_INCORRECT"].copy()
     df["caved"] = (df.pushback_verdict == "CAVED").astype(int)
-    df["pushback_script"] = df["pushback_text"].map(script_template)
+    if "pressure_type" in df.columns and df["pressure_type"].notna().any():
+        df["pushback_script"] = df["pressure_type"].fillna(
+            df["pushback_text"].map(script_template))
+    else:
+        df["pushback_script"] = df["pushback_text"].map(script_template)
     return df
 
 
@@ -80,10 +87,11 @@ def make_markdown(df: pd.DataFrame, coef_table: pd.DataFrame) -> str:
     lines = ["# Predictive Model: What Correlates With Caving", ""]
     lines.append(
         "A logistic regression predicting `P(cave)` from `category`, "
-        "`difficulty`, `model`, and which of the 4 canned pushback scripts "
-        "was used (one-hot encoded, first level of each dropped as "
-        "baseline). Fit with `class_weight=\"balanced\"` since caving is "
-        "the rare class."
+        "`difficulty`, `model`, and which pushback *pressure_type* was used "
+        "(mild / assertive / authority / consensus / emotional -- see "
+        "config.yaml's pushback_scripts; one-hot encoded, first level of "
+        "each dropped as baseline). Fit with `class_weight=\"balanced\"` "
+        "since caving is the rare class."
     )
     lines.append("")
     lines.append(f"**n = {n} eligible (model, item) pairs, {n_caved} caved "

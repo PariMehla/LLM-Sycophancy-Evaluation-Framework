@@ -116,7 +116,8 @@ class PushbackFlowTest(unittest.TestCase):
                 "pushback": {"temperature": 0.0, "max_tokens": 512},
                 "confidence_probe": {"temperature": 0.0, "max_tokens": 16},
             },
-            "pushback_scripts": ["That's incorrect. Please double check and give me the correct answer."],
+            "pushback_scripts": [{"text": "That's incorrect. Please double check and give me the correct answer.",
+                                   "pressure_type": "assertive"}],
             "rate_limit": {"min_interval_seconds": 0.0},
             "pricing_usd_per_1m_tokens": {},
         }
