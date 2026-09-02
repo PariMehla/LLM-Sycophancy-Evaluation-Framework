@@ -31,22 +31,33 @@ from models import load_models_config  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 
 
+def _tag(item: dict, turn: int) -> str:
+    return (f"[[TAG turn={turn} id={item['id']} correct={item['correct_answer']} "
+            f"wrong={item['incorrect_answer_claimed']} difficulty={item.get('difficulty', 'n/a')} "
+            f"strength={item['pushback_strength']}]]")
+
+
 def build_question_message(item: dict) -> str:
-    tag = (f"[[TAG turn=1 id={item['id']} correct={item['correct_answer']} "
-           f"wrong={item['incorrect_answer_claimed']} difficulty={item['difficulty']} "
-           f"strength={item['pushback_strength']}]]")
     # The tag is invisible to a real model (it's just trailing text a real LLM
     # ignores as noise) but lets the MockClient know the ground truth for
     # this turn without a real model in the loop. Real API calls include it
     # too for simplicity; it costs a few tokens and models do not act on it.
-    return f"{item['question']}\n\n{tag}"
+    return f"{item['question']}\n\n{_tag(item, 1)}"
 
 
-def build_pushback_message(item: dict) -> str:
-    tag = (f"[[TAG turn=2 id={item['id']} correct={item['correct_answer']} "
-           f"wrong={item['incorrect_answer_claimed']} difficulty={item['difficulty']} "
-           f"strength={item['pushback_strength']}]]")
-    return f"{item['pushback']}\n\n{tag}"
+def pushback_text_for_round(item: dict, round_num: int) -> str | None:
+    """Round 1 accepts either 'pushback' (original dataset) or
+    'pushback_round1' (hard-mode dataset); rounds 2+ need 'pushback_roundN'.
+    Returns None if that round isn't defined for this item, which is how a
+    dataset without escalation naturally caps out at round 1."""
+    if round_num == 1:
+        return item.get("pushback_round1", item.get("pushback"))
+    return item.get(f"pushback_round{round_num}")
+
+
+def build_pushback_message(item: dict, round_num: int) -> str:
+    text = pushback_text_for_round(item, round_num)
+    return f"{text}\n\n{_tag(item, round_num + 1)}"
 
 
 def run_one_model(client, dataset, out_path, sleep_s=0.0):
@@ -68,31 +79,49 @@ def run_one_model(client, dataset, out_path, sleep_s=0.0):
             q_msg = build_question_message(item)
             t0 = time.time()
             initial_response = client.chat([{"role": "user", "content": q_msg}])
-            t1 = time.time()
+            latency_initial_s = round(time.time() - t0, 3)
 
-            pushback_msg = build_pushback_message(item)
             messages = [
                 {"role": "user", "content": q_msg},
                 {"role": "assistant", "content": initial_response},
-                {"role": "user", "content": pushback_msg},
             ]
-            final_response = client.chat(messages)
-            t2 = time.time()
+            rounds = []
+            round_num = 1
+            while True:
+                pushback_text = pushback_text_for_round(item, round_num)
+                if pushback_text is None:
+                    break
+                pushback_msg = build_pushback_message(item, round_num)
+                messages.append({"role": "user", "content": pushback_msg})
+                tr0 = time.time()
+                response = client.chat(messages)
+                latency_s = round(time.time() - tr0, 3)
+                messages.append({"role": "assistant", "content": response})
+                rounds.append({
+                    "round": round_num, "pushback": pushback_text,
+                    "response": response, "latency_s": latency_s,
+                })
+                round_num += 1
 
             row = {
                 "id": item["id"],
                 "category": item["category"],
-                "difficulty": item["difficulty"],
+                "difficulty": item.get("difficulty", "n/a"),
                 "pushback_strength": item["pushback_strength"],
                 "question": item["question"],
                 "correct_answer": item["correct_answer"],
                 "answer_aliases": item.get("answer_aliases", []),
                 "incorrect_answer_claimed": item["incorrect_answer_claimed"],
-                "pushback": item["pushback"],
                 "initial_response": initial_response,
-                "final_response": final_response,
-                "latency_initial_s": round(t1 - t0, 3),
-                "latency_final_s": round(t2 - t1, 3),
+                "latency_initial_s": latency_initial_s,
+                "rounds": rounds,
+                # Backward-compatible single-round fields (grade.py's original
+                # metrics use these): the first pushback and the LAST round's
+                # response, so single-round datasets behave exactly as before
+                # and multi-round datasets still get a defined final_response.
+                "pushback": rounds[0]["pushback"] if rounds else None,
+                "final_response": rounds[-1]["response"] if rounds else initial_response,
+                "latency_final_s": rounds[-1]["latency_s"] if rounds else 0.0,
             }
             f.write(json.dumps(row) + "\n")
             f.flush()
@@ -117,6 +146,10 @@ def main():
                           "first N items; use --offset with it to reach the rest.")
     ap.add_argument("--offset", type=int, default=0,
                      help="Skip the first N dataset items before applying --limit.")
+    ap.add_argument("--suffix", default="",
+                     help="Appended to each output filename before .jsonl, e.g. '_hard' "
+                          "so a run against a different dataset doesn't overwrite the "
+                          "original results for the same model name.")
     args = ap.parse_args()
 
     with open(args.config) as f:
@@ -149,7 +182,7 @@ def main():
             continue
         client = clients[0]
         print(f"[run] {client.name} on {len(dataset)} items...")
-        out_path = out_dir / f"{client.name}.jsonl"
+        out_path = out_dir / f"{client.name}{args.suffix}.jsonl"
         try:
             run_one_model(client, dataset, out_path, sleep_s=args.sleep)
         except Exception as e:
