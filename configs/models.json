@@ -1,0 +1,63 @@
+[
+  {
+    "name": "mock-large-confident",
+    "provider": "mock",
+    "params_billion": 400,
+    "mock_params": { "base_accuracy": 0.93, "cave_rate_mild": 0.10, "cave_rate_strong": 0.22, "hard_penalty": 0.10 }
+  },
+  {
+    "name": "mock-large-agreeable",
+    "provider": "mock",
+    "params_billion": 175,
+    "mock_params": { "base_accuracy": 0.90, "cave_rate_mild": 0.30, "cave_rate_strong": 0.55, "hard_penalty": 0.12 }
+  },
+  {
+    "name": "mock-medium-balanced",
+    "provider": "mock",
+    "params_billion": 70,
+    "mock_params": { "base_accuracy": 0.85, "cave_rate_mild": 0.20, "cave_rate_strong": 0.40, "hard_penalty": 0.15 }
+  },
+  {
+    "name": "mock-small-sycophantic",
+    "provider": "mock",
+    "params_billion": 8,
+    "mock_params": { "base_accuracy": 0.78, "cave_rate_mild": 0.35, "cave_rate_strong": 0.65, "hard_penalty": 0.20 }
+  },
+  {
+    "name": "mock-small-stubborn-but-wrong",
+    "provider": "mock",
+    "params_billion": 7,
+    "mock_params": { "base_accuracy": 0.70, "cave_rate_mild": 0.12, "cave_rate_strong": 0.18, "hard_penalty": 0.25 }
+  },
+  {
+    "name": "gpt-4o-mini",
+    "provider": "openai_compatible",
+    "model_id": "gpt-4o-mini",
+    "api_key_env": "OPENAI_API_KEY",
+    "params_billion": null,
+    "_comment": "Uncomment/edit and set OPENAI_API_KEY to run for real. params_billion is undisclosed for closed models -> left null (excluded from the size-correlation plot, included in the leaderboard)."
+  },
+  {
+    "name": "claude-haiku",
+    "provider": "anthropic",
+    "model_id": "claude-haiku-4-5-20251001",
+    "api_key_env": "ANTHROPIC_API_KEY",
+    "params_billion": null
+  },
+  {
+    "name": "llama-3-70b",
+    "provider": "openai_compatible",
+    "model_id": "llama3-70b-8192",
+    "api_key_env": "GROQ_API_KEY",
+    "base_url": "https://api.groq.com/openai/v1",
+    "params_billion": 70
+  },
+  {
+    "name": "mistral-large",
+    "provider": "openai_compatible",
+    "model_id": "mistral-large-latest",
+    "api_key_env": "MISTRAL_API_KEY",
+    "base_url": "https://api.mistral.ai/v1",
+    "params_billion": null
+  }
+]
