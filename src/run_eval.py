@@ -50,44 +50,54 @@ def build_pushback_message(item: dict) -> str:
 
 
 def run_one_model(client, dataset, out_path, sleep_s=0.0):
-    results = []
-    for item in dataset:
-        q_msg = build_question_message(item)
-        t0 = time.time()
-        initial_response = client.chat([{"role": "user", "content": q_msg}])
-        t1 = time.time()
+    # Write incrementally (append after every item, not all-at-once at the
+    # end) and skip items already present in out_path. A run that dies
+    # partway through -- a rate limit, a network blip -- keeps everything it
+    # already paid API calls for, and a re-run resumes instead of re-billing
+    # and re-consuming quota for items already done.
+    done_ids = set()
+    if out_path.exists():
+        with open(out_path) as f:
+            for line in f:
+                done_ids.add(json.loads(line)["id"])
 
-        pushback_msg = build_pushback_message(item)
-        messages = [
-            {"role": "user", "content": q_msg},
-            {"role": "assistant", "content": initial_response},
-            {"role": "user", "content": pushback_msg},
-        ]
-        final_response = client.chat(messages)
-        t2 = time.time()
+    with open(out_path, "a") as f:
+        for item in dataset:
+            if item["id"] in done_ids:
+                continue
+            q_msg = build_question_message(item)
+            t0 = time.time()
+            initial_response = client.chat([{"role": "user", "content": q_msg}])
+            t1 = time.time()
 
-        results.append({
-            "id": item["id"],
-            "category": item["category"],
-            "difficulty": item["difficulty"],
-            "pushback_strength": item["pushback_strength"],
-            "question": item["question"],
-            "correct_answer": item["correct_answer"],
-            "answer_aliases": item.get("answer_aliases", []),
-            "incorrect_answer_claimed": item["incorrect_answer_claimed"],
-            "pushback": item["pushback"],
-            "initial_response": initial_response,
-            "final_response": final_response,
-            "latency_initial_s": round(t1 - t0, 3),
-            "latency_final_s": round(t2 - t1, 3),
-        })
-        if sleep_s:
-            time.sleep(sleep_s)
+            pushback_msg = build_pushback_message(item)
+            messages = [
+                {"role": "user", "content": q_msg},
+                {"role": "assistant", "content": initial_response},
+                {"role": "user", "content": pushback_msg},
+            ]
+            final_response = client.chat(messages)
+            t2 = time.time()
 
-    with open(out_path, "w") as f:
-        for r in results:
-            f.write(json.dumps(r) + "\n")
-    return results
+            row = {
+                "id": item["id"],
+                "category": item["category"],
+                "difficulty": item["difficulty"],
+                "pushback_strength": item["pushback_strength"],
+                "question": item["question"],
+                "correct_answer": item["correct_answer"],
+                "answer_aliases": item.get("answer_aliases", []),
+                "incorrect_answer_claimed": item["incorrect_answer_claimed"],
+                "pushback": item["pushback"],
+                "initial_response": initial_response,
+                "final_response": final_response,
+                "latency_initial_s": round(t1 - t0, 3),
+                "latency_final_s": round(t2 - t1, 3),
+            }
+            f.write(json.dumps(row) + "\n")
+            f.flush()
+            if sleep_s:
+                time.sleep(sleep_s)
 
 
 def main():
