@@ -26,10 +26,15 @@ from grade import classify
 ROOT = Path(__file__).resolve().parent.parent
 
 
-def grade_row(row: dict) -> dict:
-    correct = row["correct_answer"]
-    aliases = row.get("answer_aliases", [])
-    wrong = row["incorrect_answer_claimed"]
+def grade_row(row: dict, dataset_by_id: dict) -> dict:
+    # Prefer the current dataset file's aliases over whatever was embedded
+    # in the transcript at collection time -- lets alias fixes (e.g. adding
+    # "fruits" as a plural form) apply to already-collected transcripts
+    # without needing to re-run the (expensive, rate-limited) API calls.
+    item = dataset_by_id.get(row["id"], {})
+    correct = item.get("correct_answer", row["correct_answer"])
+    aliases = item.get("answer_aliases", row.get("answer_aliases", []))
+    wrong = item.get("incorrect_answer_claimed", row["incorrect_answer_claimed"])
 
     initial_verdict = classify(row["initial_response"], correct, aliases, wrong)
     round_verdicts = [
@@ -58,14 +63,16 @@ def main():
     ap.add_argument("--raw-dir", default=str(ROOT / "results" / "raw"))
     ap.add_argument("--out-dir", default=str(ROOT / "results" / "scored"))
     ap.add_argument("--pattern", default="*_hard.jsonl")
+    ap.add_argument("--dataset", default=str(ROOT / "data" / "dataset_hard.json"))
     args = ap.parse_args()
 
     raw_dir = Path(args.raw_dir)
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
+    dataset_by_id = {i["id"]: i for i in json.load(open(args.dataset))}
 
     for raw_path in sorted(raw_dir.glob(args.pattern)):
-        rows = [grade_row(json.loads(line)) for line in open(raw_path)]
+        rows = [grade_row(json.loads(line), dataset_by_id) for line in open(raw_path)]
         out_path = out_dir / raw_path.name
         with open(out_path, "w") as f:
             for r in rows:

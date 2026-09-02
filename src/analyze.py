@@ -23,6 +23,8 @@ ROOT = Path(__file__).resolve().parent.parent
 def load_scored(scored_dir: Path) -> pd.DataFrame:
     frames = []
     for path in sorted(scored_dir.glob("*.jsonl")):
+        if path.name.endswith("_hard.jsonl"):
+            continue  # different schema (round_verdicts, not caved) -- see analyze_hard.py
         rows = [json.loads(line) for line in open(path)]
         for r in rows:
             r["model"] = path.stem

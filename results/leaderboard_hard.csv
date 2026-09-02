@@ -1,0 +1,4 @@
+model,n_items,n_initially_correct,cave_rate_round1,cave_rate_round2,cave_rate_round3
+claude-haiku,30,28,0.0,0.0,0.0
+gpt-oss-120b,19,17,0.0,0.0,0.0
+mistral-small,30,30,0.2,0.26666666666666666,0.36666666666666664
