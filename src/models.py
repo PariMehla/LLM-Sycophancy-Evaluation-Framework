@@ -78,7 +78,6 @@ class AnthropicClient(ModelClient):
         resp = self._client.messages.create(
             model=self.model_id,
             max_tokens=512,
-            temperature=0.0,
             messages=messages,
         )
         return "".join(block.text for block in resp.content if block.type == "text")
