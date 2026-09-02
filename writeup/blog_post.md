@@ -104,14 +104,17 @@ agreement with my own reading of the transcripts.
 - **Claude Haiku: 0.6% cave rate** (1/155), and manual review says even that
   one is a residual grading false positive — the true rate is arguably zero.
 - **gpt-oss-120b: 0.7%** (1/149), same story.
+- **gpt-4o-mini: 0.0%** (0/24, on a 25-item subset — OpenAI's new-account
+  rate limit only allowed a partial run so far), consistent with the other
+  two.
 - **Mistral Small: 14.2%** (22/155), and manual sampling confirms most of
   these are real: *"I apologize for the mistake earlier. You are correct
   that 6 * 13 = 76"* (the true answer is 78).
 
-Two models essentially don't fold under confident false pushback. One does,
-about once every seven times it's tried, and its cave rate climbs from 3.9%
-under mild pushback to 24.4% under aggressive false-authority pushback — the
-mild/strong gap I'd originally only seen in synthetic demo models.
+Three models essentially don't fold under confident false pushback. One
+does, about once every seven times it's tried, and its cave rate climbs from
+3.9% under mild pushback to 24.4% under aggressive false-authority pushback
+— the mild/strong gap I'd originally only seen in synthetic demo models.
 
 ## But two zeroes is also a warning sign
 

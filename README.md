@@ -10,13 +10,14 @@ definitely X, fix it"). We check whether the model **caves** — flips from a
 correct answer to the wrong one the user asserted — with no new evidence
 having been given.
 
-> **Status of the numbers in this repo:** the leaderboard includes **three
+> **Status of the numbers in this repo:** the leaderboard includes **four
 > real models, all run live against their actual APIs** — **Claude Haiku**
-> (Anthropic), **gpt-oss-120b** (an open-weight model via Groq), and
-> **Mistral Small** (Mistral) — alongside five clearly-labeled **synthetic
-> mock models** (`src/models.py::MockClient`) used to demonstrate the
-> harness before API keys were available. See
-> [Running it for real](#running-it-for-real) to add more.
+> (Anthropic), **gpt-oss-120b** (an open-weight model via Groq), **Mistral
+> Small** (Mistral), and **gpt-4o-mini** (OpenAI, on a 25-item subset — see
+> below) — alongside five clearly-labeled **synthetic mock models**
+> (`src/models.py::MockClient`) used to demonstrate the harness before API
+> keys were available. See [Running it for real](#running-it-for-real) to
+> add more.
 
 ## Why sycophancy under pushback
 
@@ -186,49 +187,60 @@ tight daily quota across multiple days).
 
 ## Results
 
-| model | real or mock | params (B) | initial accuracy | **sycophancy rate** | mild pushback | strong pushback |
-|---|---|---|---|---|---|---|
-| **claude-haiku** | **real (live API)** | undisclosed | 96.9% | **0.6%** | 1.3% | 0.0% |
-| **gpt-oss-120b** | **real (Groq API)** | 120 | 93.1% | **0.7%** | 1.4% | 0.0% |
-| **mistral-small** | **real (Mistral API)** | undisclosed | 96.9% | **14.2%** | 3.9% | 24.4% |
-| mock-small-stubborn-but-wrong | synthetic | 7 | 61.3% | 17.3% | 12.2% | 22.4% |
-| mock-large-confident | synthetic | 400 | 88.1% | 18.4% | 9.9% | 27.1% |
-| mock-medium-balanced | synthetic | 70 | 78.8% | 30.2% | 25.4% | 34.9% |
-| mock-large-agreeable | synthetic | 175 | 86.3% | 36.2% | 20.0% | 52.9% |
-| mock-small-sycophantic | synthetic | 8 | 72.5% | 43.1% | 24.6% | 63.6% |
+| model | real or mock | params (B) | items | initial accuracy | **sycophancy rate** | mild pushback | strong pushback |
+|---|---|---|---|---|---|---|---|
+| **gpt-4o-mini** | **real (OpenAI API)** | undisclosed | 25* | 96.0% | **0.0%** | 0.0% | 0.0% |
+| **claude-haiku** | **real (live API)** | undisclosed | 160 | 96.9% | **0.6%** | 1.3% | 0.0% |
+| **gpt-oss-120b** | **real (Groq API)** | 120 | 160 | 93.1% | **0.7%** | 1.4% | 0.0% |
+| **mistral-small** | **real (Mistral API)** | undisclosed | 160 | 96.9% | **14.2%** | 3.9% | 24.4% |
+| mock-small-stubborn-but-wrong | synthetic | 7 | 160 | 61.3% | 17.3% | 12.2% | 22.4% |
+| mock-large-confident | synthetic | 400 | 160 | 88.1% | 18.4% | 9.9% | 27.1% |
+| mock-medium-balanced | synthetic | 70 | 160 | 78.8% | 30.2% | 25.4% | 34.9% |
+| mock-large-agreeable | synthetic | 175 | 160 | 86.3% | 36.2% | 20.0% | 52.9% |
+| mock-small-sycophantic | synthetic | 8 | 160 | 72.5% | 43.1% | 24.6% | 63.6% |
+
+\* gpt-4o-mini ran on the first 25 items only (OpenAI's 50-requests/day cap
+on this account, `--limit 25` = exactly 50 requests). `--limit`/`--offset`
+plus the incremental-write/resume feature mean the remaining 135 items can
+be added a day's quota at a time without re-billing what's already done.
 
 Full CSV: `results/leaderboard.csv`. Plots: `results/plots/`.
 
-### The headline finding: two models near-zero, one meaningfully sycophantic
+### The headline finding: three models near-zero, one meaningfully sycophantic
 
-480 live API calls (three models x 160 items x 2 turns), each graded and
-then **hand-verified** against fresh random samples (see "Why rule-based
+585 live API calls across four models, each graded and then
+**hand-verified** against fresh random samples (see "Why rule-based
 grading" above for the five real grading bugs found and fixed along the
 way — some model-specific). After every fix:
 
+- **gpt-4o-mini**: 0 flagged caves out of 24 (0.0%) on the 25-item subset
+  run so far — same known residual-limitation pattern as the others (a
+  `common_misconception` item correctly landing "ambiguous," not
+  wrongly "caved," when the rebuttal doesn't repeat the literal word
+  "false"), no new bug.
 - **Claude Haiku**: 1 flagged cave out of 155 (0.6%) — manual review says
   even that one is a residual grading false positive (see the known-limits
   list above), so the true rate is arguably **0/155**.
 - **gpt-oss-120b**: 1 flagged cave out of 149 (0.7%) — same story, likely
   also a residual false positive on manual read.
 - **Mistral Small**: **22 flagged caves out of 155 (14.2%)**, and unlike the
-  other two, manual sampling of its flagged cases confirms the large
+  other three, manual sampling of its flagged cases confirms the large
   majority are genuine: explicit reversals like *"You are correct that 6 *
   13 = 76"* (true answer: 78) or a plain one-word *"No"* to a question whose
   correct answer is yes.
 
-This is a real, model-differentiating result, not just three near-identical
-"solved" numbers: on this dataset, two current models essentially never
+This is a real, model-differentiating result, not four near-identical
+"solved" numbers: on this dataset, three current models essentially never
 cave to confident false pushback, and one — while still getting the
 question right initially over 96% of the time — abandons a correct answer
 roughly 1 time in 7 once pushed. Mistral Small also shows the mild/strong
 gap the synthetic models were built to demonstrate (3.9% -> 24.4%), while
-Claude Haiku and gpt-oss-120b don't move at all between mild and strong
-pushback — both already near the floor.
+the other three real models don't move at all between mild and strong
+pushback — all already near the floor.
 
 ### Is the dataset too easy? — the hard-mode escalation extension
 
-Two of three real models scoring ~0% is a good, specific finding, but it
+Three of four real models scoring ~0% is a good, specific finding, but it
 also means this 160-item dataset has run out of room to discriminate
 between good models — if every future model scores near-zero too, the
 benchmark stops being useful. So we built a harder companion test
@@ -364,10 +376,10 @@ writeup/blog_post.md            write-up draft
 - Finish gpt-oss-120b's hard-mode run: it's at 19/30 items (Groq's daily
   token quota ran out); `run_eval.py --models gpt-oss-120b --dataset
   data/dataset_hard.json --suffix _hard` picks up exactly where it left off.
-- Add gpt-4o-mini or another OpenAI model to the real comparison — the repo
-  has hit OpenAI's 50-requests/day new-account cap before finishing a run;
-  `--limit`/`--offset` let you grind through a few days' worth of quota
-  without re-billing already-completed items.
+- Finish gpt-4o-mini's remaining 135 items: it's at 25/160 (OpenAI's
+  50-requests/day new-account cap); `run_eval.py --models gpt-4o-mini
+  --offset 25 --limit 25` (repeated with a growing `--offset` across a few
+  days) grinds through the rest without re-billing what's already done.
 - Push the hard-mode escalation further: a 4th or 5th round, or applying
   the same escalation machinery to some of the original 160 items directly
   now that `run_eval.py` supports arbitrary `pushback_roundN` fields.
@@ -375,13 +387,13 @@ writeup/blog_post.md            write-up draft
 ## Resume bullet template
 
 > Built and open-sourced a 190-item benchmark (plus an escalating multi-round
-> extension) for sycophancy-under-pushback in LLMs; evaluated 3 models live
-> across 3 providers' APIs (Anthropic, Groq, Mistral); found and fixed 5
-> distinct rule-based grading bugs via manual transcript review (repeated
-> spot-checks landing at 90%+ post-fix agreement with human judgment,
-> including one bug specific to a hidden eval-harness artifact one model was
-> echoing back into its own completions); results showed two models
-> essentially immune to confident false pushback (~0.6-0.7% cave rate) and
+> extension) for sycophancy-under-pushback in LLMs; evaluated 4 models live
+> across 4 providers' APIs (Anthropic, Groq, Mistral, OpenAI); found and
+> fixed 5 distinct rule-based grading bugs via manual transcript review
+> (repeated spot-checks landing at 90%+ post-fix agreement with human
+> judgment, including one bug specific to a hidden eval-harness artifact one
+> model was echoing back into its own completions); results showed three
+> models essentially immune to confident false pushback (~0-0.7% cave rate) and
 > one meaningfully sycophantic (14.2%, rising to 36.7% under 3 rounds of
 > escalating pressure) — a real, differentiating finding rather than three
 > models all scoring "solved."
