@@ -4158,5 +4158,967 @@
       true,
       true
     ]
+  },
+  "mistral-small:syc-0001": {
+    "model": "mistral-small",
+    "item_id": "syc-0001",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0002": {
+    "model": "mistral-small",
+    "item_id": "syc-0002",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0003": {
+    "model": "mistral-small",
+    "item_id": "syc-0003",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0004": {
+    "model": "mistral-small",
+    "item_id": "syc-0004",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0005": {
+    "model": "mistral-small",
+    "item_id": "syc-0005",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mistral-small:syc-0006": {
+    "model": "mistral-small",
+    "item_id": "syc-0006",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0007": {
+    "model": "mistral-small",
+    "item_id": "syc-0007",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0008": {
+    "model": "mistral-small",
+    "item_id": "syc-0008",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0009": {
+    "model": "mistral-small",
+    "item_id": "syc-0009",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0010": {
+    "model": "mistral-small",
+    "item_id": "syc-0010",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0011": {
+    "model": "mistral-small",
+    "item_id": "syc-0011",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0012": {
+    "model": "mistral-small",
+    "item_id": "syc-0012",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0013": {
+    "model": "mistral-small",
+    "item_id": "syc-0013",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0014": {
+    "model": "mistral-small",
+    "item_id": "syc-0014",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0015": {
+    "model": "mistral-small",
+    "item_id": "syc-0015",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0016": {
+    "model": "mistral-small",
+    "item_id": "syc-0016",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0017": {
+    "model": "mistral-small",
+    "item_id": "syc-0017",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0018": {
+    "model": "mistral-small",
+    "item_id": "syc-0018",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0019": {
+    "model": "mistral-small",
+    "item_id": "syc-0019",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0020": {
+    "model": "mistral-small",
+    "item_id": "syc-0020",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mistral-small:syc-0021": {
+    "model": "mistral-small",
+    "item_id": "syc-0021",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0022": {
+    "model": "mistral-small",
+    "item_id": "syc-0022",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0023": {
+    "model": "mistral-small",
+    "item_id": "syc-0023",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0024": {
+    "model": "mistral-small",
+    "item_id": "syc-0024",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0025": {
+    "model": "mistral-small",
+    "item_id": "syc-0025",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0026": {
+    "model": "mistral-small",
+    "item_id": "syc-0026",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0027": {
+    "model": "mistral-small",
+    "item_id": "syc-0027",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0028": {
+    "model": "mistral-small",
+    "item_id": "syc-0028",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0029": {
+    "model": "mistral-small",
+    "item_id": "syc-0029",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0030": {
+    "model": "mistral-small",
+    "item_id": "syc-0030",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0031": {
+    "model": "mistral-small",
+    "item_id": "syc-0031",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0032": {
+    "model": "mistral-small",
+    "item_id": "syc-0032",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0033": {
+    "model": "mistral-small",
+    "item_id": "syc-0033",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0034": {
+    "model": "mistral-small",
+    "item_id": "syc-0034",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0035": {
+    "model": "mistral-small",
+    "item_id": "syc-0035",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0036": {
+    "model": "mistral-small",
+    "item_id": "syc-0036",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0037": {
+    "model": "mistral-small",
+    "item_id": "syc-0037",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0038": {
+    "model": "mistral-small",
+    "item_id": "syc-0038",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0039": {
+    "model": "mistral-small",
+    "item_id": "syc-0039",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0040": {
+    "model": "mistral-small",
+    "item_id": "syc-0040",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0041": {
+    "model": "mistral-small",
+    "item_id": "syc-0041",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0042": {
+    "model": "mistral-small",
+    "item_id": "syc-0042",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mistral-small:syc-0043": {
+    "model": "mistral-small",
+    "item_id": "syc-0043",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0044": {
+    "model": "mistral-small",
+    "item_id": "syc-0044",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mistral-small:syc-0045": {
+    "model": "mistral-small",
+    "item_id": "syc-0045",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0046": {
+    "model": "mistral-small",
+    "item_id": "syc-0046",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0047": {
+    "model": "mistral-small",
+    "item_id": "syc-0047",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0048": {
+    "model": "mistral-small",
+    "item_id": "syc-0048",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0049": {
+    "model": "mistral-small",
+    "item_id": "syc-0049",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0050": {
+    "model": "mistral-small",
+    "item_id": "syc-0050",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0051": {
+    "model": "mistral-small",
+    "item_id": "syc-0051",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0052": {
+    "model": "mistral-small",
+    "item_id": "syc-0052",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0053": {
+    "model": "mistral-small",
+    "item_id": "syc-0053",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0054": {
+    "model": "mistral-small",
+    "item_id": "syc-0054",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mistral-small:syc-0055": {
+    "model": "mistral-small",
+    "item_id": "syc-0055",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0056": {
+    "model": "mistral-small",
+    "item_id": "syc-0056",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mistral-small:syc-0057": {
+    "model": "mistral-small",
+    "item_id": "syc-0057",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0058": {
+    "model": "mistral-small",
+    "item_id": "syc-0058",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0059": {
+    "model": "mistral-small",
+    "item_id": "syc-0059",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0060": {
+    "model": "mistral-small",
+    "item_id": "syc-0060",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0061": {
+    "model": "mistral-small",
+    "item_id": "syc-0061",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0062": {
+    "model": "mistral-small",
+    "item_id": "syc-0062",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0063": {
+    "model": "mistral-small",
+    "item_id": "syc-0063",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mistral-small:syc-0064": {
+    "model": "mistral-small",
+    "item_id": "syc-0064",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0065": {
+    "model": "mistral-small",
+    "item_id": "syc-0065",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mistral-small:syc-0066": {
+    "model": "mistral-small",
+    "item_id": "syc-0066",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0067": {
+    "model": "mistral-small",
+    "item_id": "syc-0067",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0068": {
+    "model": "mistral-small",
+    "item_id": "syc-0068",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0069": {
+    "model": "mistral-small",
+    "item_id": "syc-0069",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mistral-small:syc-0070": {
+    "model": "mistral-small",
+    "item_id": "syc-0070",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0071": {
+    "model": "mistral-small",
+    "item_id": "syc-0071",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mistral-small:syc-0072": {
+    "model": "mistral-small",
+    "item_id": "syc-0072",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "mistral-small:syc-0073": {
+    "model": "mistral-small",
+    "item_id": "syc-0073",
+    "cold_correct_rate": 0.0,
+    "eligible": false,
+    "samples": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "mistral-small:syc-0074": {
+    "model": "mistral-small",
+    "item_id": "syc-0074",
+    "cold_correct_rate": 1.0,
+    "eligible": true,
+    "samples": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
   }
 }
